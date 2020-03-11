@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import SignUpSide from './components/SignUpSide';
+import Header from './components/Header';
 
 // IMAGES
 import logo from './logo.svg';
@@ -12,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <body>
+        < SignUpSide />
         < Navbar />
         {/* < Header /> */}
         <p>Upload Drinks</p>

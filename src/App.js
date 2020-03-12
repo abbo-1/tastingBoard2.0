@@ -8,7 +8,7 @@ import logo from './logo.svg';
 
 // COMPONENTS
 // import Header from './components/header'
-import Navbar from './components/navbar'
+import Navbar from './components/Navbar'
 
 function App() {
   return (

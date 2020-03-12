@@ -20,8 +20,7 @@ const useStyles = makeStyles(theme => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://i.imgur.com/4rHxD9L.png)',
-    // backgroundImage: 'url(https://source.unsplash.com/Zrp9b3PMIy8/1416x1625)',
+    backgroundImage: 'url(https://i.imgur.com/qtUpRvX.png)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
@@ -114,19 +113,19 @@ export default function SignInSide() {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <p class = "signInText">Remember that <span
-            class="txt-rotate"
-            data-period="2000"
-            data-rotate='[ "bottle of wine", "cocktail", "stout", "brand of whiskey"]'>
-          </span> you tried that one time? <br/>You remember, right? It was called something with s? It had a red label...or was it green?</p>   
-            <br />
-            <p class = "signInText">With Tasting Board you can log, track, and rate all the drinks you'll never forget again!</p>
-          <Avatar className={classes.avatar}>
+        <Avatar className={classes.avatar}>
             <LocalBarIcon />
           </Avatar>
           <Typography component="h1" variant="h6">
             Sign Up
           </Typography>
+          <p class = "signInText">Remember that incredible <span
+            class="txt-rotate"
+            data-period="2000"
+            data-rotate='[ "bottle of wine", "IPA","cocktail", "stout", "brand of whiskey"]'>
+          </span> you tried that one time? <br/>You remember, right? It started with an "S" I think? It had a red label...or was it green?</p>   
+            <br />
+            <p class = "signInText">With Tasting Board you can log, track, and rate all the drinks you'll never forget again!</p>
           <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>

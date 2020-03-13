@@ -32,10 +32,9 @@ const useStyles = makeStyles({
           <Tab label="Wine" />
           <Tab label="Beer" />
           <Tab label="Liquor" />
+          <Tab label="Cocktail" />
+          <Tab label="Favorites" />
         </Tabs>
       </Paper>
     );
   }
-  
-
-// export default navbar;

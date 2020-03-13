@@ -1,4 +1,8 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import store from '../store';
 
+class Render  extends React.Component {
 
 state = this.getCurrentStateFromStore()
     
@@ -20,8 +24,6 @@ state = this.getCurrentStateFromStore()
   componentWillUnmount() {
     this.unsubscribeStore();
   }
-  
-  export default function CenteredTabs() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
   
@@ -31,10 +33,11 @@ state = this.getCurrentStateFromStore()
 
     handleChoice(choice) {
       this.props.dispatch({ type:'CHANGE_DRINKS', choice: choice})
-     }
+    }
+
      render() {
-      console.log("test")
-        switch(this.state.choice) {
+         let drinkChoice = this.props.reduxState.choice
+        switch(drinkChoice) {
           case "all":
             <p>This is all of your drinks</p>
             break;
@@ -53,3 +56,5 @@ state = this.getCurrentStateFromStore()
           case "favorites":
             <p>These are your favorites</p>
           break;
+
+export default connect()(Render);

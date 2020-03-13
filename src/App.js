@@ -10,6 +10,8 @@ import Navbar from './components/Navbar';
 import Header from './components/Header.js';
 import SignUpSide from './components/SignUpSide';
 import Card from './components/Card.js';
+import Render from './components/Render.js'
+import Store from './store.js'
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         < SignUpSide />
         < Header />
         < Navbar />
+        <Render reduxState = {Store.getState()}/>
         <Card />
       </body>
     </div>

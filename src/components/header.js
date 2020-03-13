@@ -3,6 +3,8 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
+import SideLogo from '../images/mainLogo.png'
+
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -16,8 +18,9 @@ export default function SimpleMenu() {
 
   return (
     <div className="header">
+     <img src={SideLogo} class="sidelogo" alt="side logo"></img>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Open Menu
+        Menu
       </Button>
       <Menu
         id="simple-menu"
@@ -26,8 +29,7 @@ export default function SimpleMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Change Password</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
     </div>

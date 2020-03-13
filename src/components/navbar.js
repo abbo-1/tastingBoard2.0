@@ -18,6 +18,10 @@ const useStyles = makeStyles({
     const handleChange = (event, newValue) => {
       setValue(newValue);
     };
+
+    // const drinkChoice = (drinks) => {
+    //   console.log(drinks)
+    // }
   
     return (
       <Paper className={classes.root}>
@@ -34,6 +38,14 @@ const useStyles = makeStyles({
           <Tab onClick = { () =>this.handleChoice("liquor") } label="Liquor" />
           <Tab onClick = { () =>this.handleChoice("cocktails") } label="Cocktail" />
           <Tab onClick = { () =>this.handleChoice("favorites") } label="Favorites" /> */}
+
+          {/* <Tab drinkChoice={this.all} label="All" />
+          <Tab drinkChoice={this.wine} label="Wine" />
+          <Tab drinkChoice={this.beer} label="Beer" />
+          <Tab drinkChoice={this.liquor} label="Liquor" />
+          <Tab drinkChoice={this.cocktail} label="Cocktail" />
+          <Tab drinkChoice={this.favorites} label="Favorites" /> */}
+
           <Tab label="All" />
           <Tab label="Wine" />
           <Tab label="Beer" />

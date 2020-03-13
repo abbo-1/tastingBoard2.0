@@ -1,8 +1,7 @@
 import { createStore } from 'redux';
 
 const initialState = {
-    rate: 0,
-    person: ""
+    choice: "beer"
 }
 
 const store = createStore((state = initialState, action) => { 

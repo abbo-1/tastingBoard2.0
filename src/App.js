@@ -1,23 +1,25 @@
 import React from 'react';
 import './App.css';
-import SignUpSide from './components/SignUpSide';
-import Header from './components/Header';
 
 // IMAGES
-import logo from './logo.svg';
+// import logo from './logo.svg';
 
 // COMPONENTS
 // import Header from './components/header'
-import Navbar from './components/Navbar'
+
+import Navbar from './components/Navbar';
+import Header from './components/Header.js';
+import SignUpSide from './components/SignUpSide';
+import Card from './components/Card.js';
 
 function App() {
   return (
     <div className="App">
       <body>
         < SignUpSide />
+        < Header />
         < Navbar />
-        {/* < Header /> */}
-        <p>Upload Drinks</p>
+        <Card />
       </body>
     </div>
   );

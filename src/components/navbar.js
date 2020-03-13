@@ -10,6 +10,8 @@ const useStyles = makeStyles({
       flexGrow: 1,
     },
   });
+
+  this.handleSubmit = this.handleSubmit.bind(this);
   
   export default function CenteredTabs() {
     const classes = useStyles();
@@ -19,10 +21,19 @@ const useStyles = makeStyles({
       setValue(newValue);
     };
 
-    // const drinkChoice = (drinks) => {
-    //   console.log(drinks)
-    // }
-  
+    this.state = {drinkChoice: ''}
+
+    handleSubmit(event) {
+      event.preventDefault();
+      console.log('dispatching action');
+      
+      //ReduxStore.dispatch({
+      this.props.reduxDispatch({
+        type: 'CHANGE_DRINKS',
+        drinkChoice: this.state.drinkChoice,
+      });
+    };
+    
     return (
       <Paper className={classes.root}>
         <Tabs
@@ -56,4 +67,3 @@ const useStyles = makeStyles({
       </Paper>
     );
   }
-  

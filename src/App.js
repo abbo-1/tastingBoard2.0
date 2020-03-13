@@ -19,7 +19,7 @@ function App() {
       <body>
         < SignUpSide />
         < Header />
-        < Navbar />
+        < Navbar reduxDispatch = {Store.dispatch}/> />
         <Render reduxState = {Store.getState()}/>
         <Card />
       </body>

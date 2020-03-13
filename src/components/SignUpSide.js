@@ -122,13 +122,13 @@ export default function SignInSide() {
           <p class = "signInText">Remember that incredible <span
             class="txt-rotate"
             data-period="2000"
-            data-rotate='[ "bottle of wine", "IPA","cocktail", "stout", "brand of whiskey"]'>
-          </span> you tried that one time? <br/>You remember, right? It started with an "S" I think? It had a red label...or was it green?</p>   
+            data-rotate='[ "bottle of wine ", "IPA ","cocktail ", "stout ", "brand of whiskey "]'>
+          </span>you tried that one time? <br/>You remember, right? It started with an "S" I think? It had a red label...or was it green?</p>   
             <br />
             <p class = "signInText">With Tasting Board you can log, track, and rate all the drinks you'll never forget again!</p>
           <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -138,17 +138,6 @@ export default function SignInSide() {
                 id="firstName"
                 label="First Name"
                 autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
               />
             </Grid>
             <Grid item xs={12}>
@@ -174,6 +163,18 @@ export default function SignInSide() {
                 autoComplete="current-password"
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="reEnterPassword"
+                label="Re-enter Password"
+                type="reEnterPassword"
+                id="reEnterPassword"
+                autoComplete="current-password"
+              />
+              </Grid>
             {/* <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}

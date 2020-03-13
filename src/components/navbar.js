@@ -28,14 +28,20 @@ const useStyles = makeStyles({
           textColor="primary"
           centered
         >
+          {/* <Tab onClick = { () =>this.handleChoice("all") } label="All" />
+          <Tab onClick = { () =>this.handleChoice("wine") } label="Wine" />
+          <Tab onClick = { () =>this.handleChoice("beer") } label="Beer" />
+          <Tab onClick = { () =>this.handleChoice("liquor") } label="Liquor" />
+          <Tab onClick = { () =>this.handleChoice("cocktails") } label="Cocktail" />
+          <Tab onClick = { () =>this.handleChoice("favorites") } label="Favorites" /> */}
           <Tab label="All" />
           <Tab label="Wine" />
           <Tab label="Beer" />
           <Tab label="Liquor" />
-        </Tabs>
+          <Tab label="Cocktail" />
+          <Tab label="Favorites" />
+          </Tabs>
       </Paper>
     );
   }
   
-
-// export default navbar;

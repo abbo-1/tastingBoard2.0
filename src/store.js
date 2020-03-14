@@ -5,15 +5,17 @@ const initialState = {
 }
 
 const store = createStore((state = initialState, action) => { 
-    switch (action.type) {
+            console.log("Action:", action)
+    // switch (action.type) {
+    
+        // case "CHANGE_DRINKS": 
 
-        case "CHANGE_DRINKS": 
-            return { ...state, drinkChoice : action.drinkChoice };
+            return { ...state, 
+                drinkChoice : action.drinkChoice };
         
-        default:
-            return state;
+        // default:
+        //     return state;
     }
-});
+);
 
 export default store;
-

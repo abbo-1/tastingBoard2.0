@@ -10,29 +10,56 @@ const useStyles = makeStyles({
       flexGrow: 1,
     },
   });
-
-  this.handleSubmit = this.handleSubmit.bind(this);
   
-  export default function CenteredTabs() {
+  export default function Navbar(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+    console.log(props)
   
     const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
+    setValue(newValue);
+    console.log(newValue);
+    // KEEPING TRACK OF POSITION
 
-    this.state = {drinkChoice: ''}
+    // props.reduxDispatch({
+    //     type: 'CHANGE_DRINKS',
+    //     drinkChoice: this.state.drinkChoice
+    //   });
+    }
 
-    handleSubmit(event) {
-      event.preventDefault();
-      console.log('dispatching action');
-      
-      //ReduxStore.dispatch({
-      this.props.reduxDispatch({
+    const handleClick = (drinkChoice) => {
+      console.log(drinkChoice);
+      console.log(props)
+
+      props.reduxDispatch({
         type: 'CHANGE_DRINKS',
-        drinkChoice: this.state.drinkChoice,
+        drinkChoice: drinkChoice
       });
-    };
+    }
+      // KEEPING TRACK OF POSITION
+
+    // switch(action.type) {
+    //     case "All": 
+    //       return {console.log("drinks")}
+    //     break;
+    //     case "Wine":
+    //       console.log("wine")
+    //     break;
+        
+
+    //     default: 
+    //   }
+    // }
+
+    // };
+    // this.state = {drinkChoice: ''}
+
+      // ReduxStore.dispatch({
+    //   this.props.reduxDispatch({
+    //     type: 'CHANGE_DRINKS',
+    //     drinkChoice: this.state.drinkChoice,
+    //   });
+    // };
     
     return (
       <Paper className={classes.root}>
@@ -43,22 +70,8 @@ const useStyles = makeStyles({
           textColor="primary"
           centered
         >
-          {/* <Tab onClick = { () =>this.handleChoice("all") } label="All" />
-          <Tab onClick = { () =>this.handleChoice("wine") } label="Wine" />
-          <Tab onClick = { () =>this.handleChoice("beer") } label="Beer" />
-          <Tab onClick = { () =>this.handleChoice("liquor") } label="Liquor" />
-          <Tab onClick = { () =>this.handleChoice("cocktails") } label="Cocktail" />
-          <Tab onClick = { () =>this.handleChoice("favorites") } label="Favorites" /> */}
-
-          {/* <Tab drinkChoice={this.all} label="All" />
-          <Tab drinkChoice={this.wine} label="Wine" />
-          <Tab drinkChoice={this.beer} label="Beer" />
-          <Tab drinkChoice={this.liquor} label="Liquor" />
-          <Tab drinkChoice={this.cocktail} label="Cocktail" />
-          <Tab drinkChoice={this.favorites} label="Favorites" /> */}
-
           <Tab label="All" />
-          <Tab label="Wine" />
+          <Tab onClick = { handleClick("Wine") } label="Wine" />
           <Tab label="Beer" />
           <Tab label="Liquor" />
           <Tab label="Cocktail" />
@@ -67,3 +80,20 @@ const useStyles = makeStyles({
       </Paper>
     );
   }
+
+
+  // export default connect()(Navbar);
+
+            /* <Tab onClick = { () =>this.handleChoice("all") } label="All" />
+          <Tab onClick = { () =>this.handleChoice("wine") } label="Wine" />
+          <Tab onClick = { () =>this.handleChoice("beer") } label="Beer" />
+          <Tab onClick = { () =>this.handleChoice("liquor") } label="Liquor" />
+          <Tab onClick = { () =>this.handleChoice("cocktails") } label="Cocktail" />
+          <Tab onClick = { () =>this.handleChoice("favorites") } label="Favorites" /> */
+
+          /* <Tab drinkChoice={this.all} label="All" />
+          <Tab drinkChoice={this.wine} label="Wine" />
+          <Tab drinkChoice={this.beer} label="Beer" />
+          <Tab drinkChoice={this.liquor} label="Liquor" />
+          <Tab drinkChoice={this.cocktail} label="Cocktail" />
+          <Tab drinkChoice={this.favorites} label="Favorites" /> */

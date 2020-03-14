@@ -11,9 +11,9 @@ const labels = {
   2.5: 'Ok',
   3: 'Good',
   3.5: 'Good+',
-  4: 'Great+',
+  4: 'Great',
   4.5: 'Love',
-  5: 'LOVE+',
+  5: 'Perfection',
 };
 
 const useStyles = makeStyles({

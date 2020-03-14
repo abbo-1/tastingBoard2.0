@@ -1,22 +1,18 @@
 import { createStore } from 'redux';
 
 const initialState = {
-    rate: 0,
-    person: ""
+    drinkChoice: "all"
 }
 
 const store = createStore((state = initialState, action) => { 
-    switch (action.type) {
+            console.log("Action:", action)
+        if (action.type === "CHANGE_DRINKS" ) {
 
-        case "CHANGE_DRINKS": 
-            return { ...state, choice : action.choice };
-            break;
-        
-        default:
-            return state;
-            break;
+            return { ...state, drinkChoice : action.drinkChoice };
+
+    } else {
+        return state;
     }
 });
 
 export default store;
-

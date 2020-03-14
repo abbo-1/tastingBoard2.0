@@ -48,17 +48,17 @@ render() {
           case "Wine":
             information = <p>This is your wine</p>
             break;
-          case "beer":
+          case "Beer":
             information = <p>This is your beer</p>
             console.log("beer")
             break;
-          case "liquor":
+          case "Liquor":
             information = <p>This is your liquor</p>
             break;
-          case "cocktail":
+          case "Cocktail":
             information = <p>These are your cocktails</p>
             break;
-          case "favorites":
+          case "Favorites":
             information = <p>These are your favorites</p>
           break;
         default :

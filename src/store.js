@@ -6,16 +6,13 @@ const initialState = {
 
 const store = createStore((state = initialState, action) => { 
             console.log("Action:", action)
-    // switch (action.type) {
-    
-        // case "CHANGE_DRINKS": 
+        if (action.type === "CHANGE_DRINKS" ) {
 
-            return { ...state, 
-                drinkChoice : action.drinkChoice };
-        
-        // default:
-        //     return state;
+            return { ...state, drinkChoice : action.drinkChoice };
+
+    } else {
+        return state;
     }
-);
+});
 
 export default store;

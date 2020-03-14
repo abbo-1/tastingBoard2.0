@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Store from './store'
 
-// Store.subscribe( () => {
+Store.subscribe( () => {
     ReactDOM.render(<App />, document.getElementById('root'));
-// });
+});
 
-// Store.dispatch({type:null});
+Store.dispatch({type:null});

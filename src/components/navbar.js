@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     const handleClick = (drinkChoice) => {
       console.log(drinkChoice);
       console.log(props)
-
+      
       props.reduxDispatch({
         type: 'CHANGE_DRINKS',
         drinkChoice: drinkChoice
@@ -70,12 +70,12 @@ const useStyles = makeStyles({
           textColor="primary"
           centered
         >
-          <Tab label="All" />
-          <Tab onClick = { handleClick("Wine") } label="Wine" />
-          <Tab label="Beer" />
-          <Tab label="Liquor" />
-          <Tab label="Cocktail" />
-          <Tab label="Favorites" />
+          <Tab onClick = { () => handleClick("All") } label="All" />
+          <Tab onClick = { () => handleClick("Wine") } label="Wine" />
+          <Tab onClick = { () => handleClick("Beer") } label="Beer" />
+          <Tab onClick = { () => handleClick("Liquor") }label="Liquor" />
+          <Tab onClick = { () => handleClick("Cocktail") } label="Cocktail" />
+          <Tab onClick = { () => handleClick("Favorites") } label="Favorites" />
           </Tabs>
       </Paper>
     );

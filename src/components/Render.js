@@ -50,7 +50,6 @@ render() {
             break;
           case "Beer":
             information = <p>This is your beer</p>
-            console.log("beer")
             break;
           case "Liquor":
             information = <p>This is your liquor</p>

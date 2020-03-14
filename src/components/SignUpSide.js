@@ -119,13 +119,13 @@ export default function SignInSide() {
           <Typography component="h1" variant="h6">
             Sign Up
           </Typography>
-          <p class = "signInText">Remember that incredible <span
-            class="txt-rotate"
+          <p className = "signInText">Remember that incredible <span
+            className="txt-rotate"
             data-period="2000"
             data-rotate='[ "bottle of wine ", "IPA ","cocktail ", "stout ", "brand of whiskey "]'>
           </span>you tried that one time? <br/>You remember, right? It started with an "S" I think? It had a red label...or was it green?</p>   
             <br />
-            <p class = "signInText">With Tasting Board you can log, track, and rate all the drinks you'll never forget again!</p>
+            <p className = "signInText">With Tasting Board you can log, track, and rate all the drinks you'll never forget again!</p>
           <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>

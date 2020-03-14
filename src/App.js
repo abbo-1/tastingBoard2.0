@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageUpload from './components/ImageUpload';
 import './App.css';
 
 // IMAGES
@@ -20,6 +21,7 @@ function App() {
         < Header />
         < Navbar />
         <Card />
+        <ImageUpload/>
       </body>
     </div>
   );

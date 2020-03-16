@@ -19,7 +19,9 @@ export default function SimpleMenu() {
 
   return (
     <div className="header">
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+      <AddButton className="addDrinksButton"/>
+
+      <Button className= "headerMenuButton" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         Menu
       </Button>
       <Menu
@@ -32,8 +34,9 @@ export default function SimpleMenu() {
         <MenuItem onClick={handleClose}>Change Password</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
-      <AddButton />
+
       <img src={SideLogo} class="sidelogo" alt="side logo"></img>
+      
     </div>
   );
 }

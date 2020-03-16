@@ -1,6 +1,28 @@
 .header {
     background-color: lightgrey;
+    position: relative;
     height: 50px;
+
+}
+
+.headerMenuButton {
+    float: right;
+    position: absolute;
+    display: inline-block;
+}
+
+.sidelogo {
+    width: 20%;
+    padding: 5px;
+    text-align: center;
+    position: absolute;
+    display: inline-block;
+}
+
+.addDrinksButton {
+    float: left;
+    position: absolute;
+    display: inline-block;
 }
 
 .signInText {
@@ -13,10 +35,7 @@
       width: 500px;
 }
 
-.sidelogo {
-    width: 20%;
-    padding: 5px;
-}
+
 
 body {
     background-image: url(./images/background5.png);

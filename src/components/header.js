@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
+import AddButton from './AddButton.js'
 import SideLogo from '../images/mainLogo.png'
 
 export default function SimpleMenu() {
@@ -18,8 +19,9 @@ export default function SimpleMenu() {
 
   return (
     <div className="header">
-     <img src={SideLogo} class="sidelogo" alt="side logo"></img>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+      <AddButton className="addDrinksButton"/>
+
+      <Button className= "headerMenuButton" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         Menu
       </Button>
       <Menu
@@ -32,6 +34,9 @@ export default function SimpleMenu() {
         <MenuItem onClick={handleClose}>Change Password</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
+
+      <img src={SideLogo} class="sidelogo" alt="side logo"></img>
+      
     </div>
   );
 }

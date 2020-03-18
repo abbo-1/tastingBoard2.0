@@ -16,17 +16,18 @@ import Render from './components/Render.js'
 import Store from './store.js'
 
 function App() {
+
+  let showCardEdit  = false; //Store.getState().showCardEdit;
+
   return (
     <div className="App">
       <body>
         < SignUpSide />
         < Header />
-        {/* < Navbar reduxDispatch = {Store.dispatch}/>  */}
-        {/* <Render reduxState = {Store.getState()}/> */}
         <Navbar reduxDispatch = {Store.dispatch} />
         <Render reduxState = {Store.getState()} />
         <Card />
-        <CardEdit />
+        {showCardEdit ? <CardEdit/> : <div/>}
       </body>
     </div>
   );

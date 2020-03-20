@@ -12,12 +12,17 @@ import Header from './components/Header.js';
 import SignUpSide from './components/SignUpSide';
 import Card from './components/Card.js';
 import CardEdit from './components/CardEdit.js'
+import AddDrink from './components/AddDrink.js'
 import Render from './components/Render.js'
 import Store from './store.js'
 
 function App() {
 
-  let showCardEdit  = false; //Store.getState().showCardEdit;
+  // let showCardEdit  = false; 
+
+  // Store.getState().showCardEdit
+  
+  //Store.getState().showCardEdit;
 
   return (
     <div className="App">
@@ -26,11 +31,14 @@ function App() {
         < Header />
         <Navbar reduxDispatch = {Store.dispatch} />
         <Render reduxState = {Store.getState()} />
-        <Card />
-        {showCardEdit ? <CardEdit/> : <div/>}
+        {/* <Card />
+        <CardEdit /> */}
+        <AddDrink />
       </body>
     </div>
   );
 }
 
 export default App;
+
+{/* <Card /> {showCardEdit ? <CardEdit/> : <div/>} */}

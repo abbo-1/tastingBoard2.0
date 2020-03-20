@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
-      width: 200,
+      width: 250,
     },
   },
 }));
@@ -26,7 +26,7 @@ export default function MultilineTextFields() {
           id="outlined-multiline-static"
           label="Comment"
           multiline
-          rows="4"
+          rows="5"
           variant="outlined"
         />
       </div>

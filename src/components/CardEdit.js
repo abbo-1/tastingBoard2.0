@@ -16,8 +16,6 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import EditIcon from '@material-ui/icons/Edit';
 
-import Modal from 'react-modal';
-
 import Rating from './Rating.js';
 import DatePicker from './DatePicker.js'
 import Input from './Input.js'
@@ -59,17 +57,10 @@ export default function CardEdit() {
     <Card className={classes.root}>
           <Selector />
       <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
         action={
           <IconButton aria-label="settings">
           </IconButton>
         }
-        title="Red Wine"
-        // subheader="September 14, 2016"
       />
       <CardMedia
         className={classes.media}

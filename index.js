@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8080;
 const path = require("path");
 const multer = require("multer");
 const router = express.Router();
-
+const passport = require('passport');
 
 
 // PG-PROMISE INIT OPTIONS
@@ -34,7 +34,7 @@ const storage = multer.diskStorage({
         Files will be saved in the 'uploads' directory. Make
         sure this directory already exists!
       */
-      cb(null, './public/uploads');
+      cb(null, './public/uploadPic');
     },
     filename: (req, file, cb) => {
       /*
@@ -64,6 +64,23 @@ app.get('/', (req, res) => {
 
 app.post('/uploadPic', (req, res) => {
    console.log('uploaded pic')
+   let upload = multer({ storage: storage}).single('profile_pic');
+
+       // req.file contains information of uploaded file
+       // req.body contains information of text fields, if there were any
+
+       if (req.fileValidationError) {
+           return res.send(req.fileValidationError);
+       }
+       else if (!req.file) {
+           return res.send('Please select an image to upload');
+       }
+       else if (err instanceof multer.MulterError) {
+           return res.send(err);
+       }
+       else if (err) {
+           return res.send(err);
+       }
       res.send('hello');
     });
 

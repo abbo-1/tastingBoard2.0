@@ -54,8 +54,13 @@ export default function CardEdit() {
   };
 
   return (
-    <Card className={classes.root}>
-          <Selector />
+    <div className = "addFancyDrink">
+      <Card className={classes.root}>
+        <div className= "cardBackground">
+        <div className="centerItems">
+          <Selector className="centerItems"/>
+        </div>
+        <Input />
       <CardHeader
         action={
           <IconButton aria-label="settings">
@@ -67,10 +72,13 @@ export default function CardEdit() {
         image="/static/images/cards/paella.jpg"
         title="Paella dish"
       />
-       <Input />
-        <Rating />
-        <DatePicker />
+        <div className="centerItems">
+          <Rating />
+        </div>
         <br/>
+        <div className="centerItems">
+          <DatePicker  className="centerItems"/>
+        </div>
         <CardContent>
         <MultiInput />
       </CardContent>
@@ -91,6 +99,8 @@ export default function CardEdit() {
         >
         </IconButton>
        </CardActions>
+       </div>
     </Card>
+    </div>
   );
 }

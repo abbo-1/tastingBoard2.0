@@ -16,7 +16,7 @@ export default function BasicTextFields() {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <TextField id="outlined-basic" label="Drink Name" variant="outlined" />
     </form>
   );
 }

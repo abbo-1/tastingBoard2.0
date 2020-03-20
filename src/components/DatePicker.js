@@ -23,7 +23,7 @@ export default function DatePickers() {
         id="date"
         label="Date Consumed:"
         type="date"
-        defaultValue="2017-05-24"
+        defaultValue="date"
         className={classes.textField}
         InputLabelProps={{
           shrink: true,

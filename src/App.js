@@ -16,6 +16,8 @@ import AddDrink from './components/AddDrink.js'
 import Render from './components/Render.js'
 import Store from './store.js'
 
+import AddFancyDrink from './components/AddFancyDrink.js'
+
 function App() {
 
   // let showCardEdit  = false; 
@@ -33,12 +35,9 @@ function App() {
         <Render reduxState = {Store.getState()} />
         {/* <Card />
         <CardEdit /> */}
-        <AddDrink />
       </body>
     </div>
   );
 }
 
 export default App;
-
-{/* <Card /> {showCardEdit ? <CardEdit/> : <div/>} */}

@@ -1,28 +1,23 @@
 .header {
     background-color: lightgrey;
     position: relative;
-    height: 50px;
-
+    height: auto;
+    width:100%;
+    display: inline-block;
 }
 
 .headerMenuButton {
     float: right;
     position: absolute;
-    display: inline-block;
+    display: block;
 }
 
 .sidelogo {
     width: 20%;
     padding: 5px;
-    text-align: center;
-    position: absolute;
-    display: inline-block;
-}
-
-.addDrinksButton {
-    float: left;
-    position: absolute;
-    display: inline-block;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
 }
 
 .signInText {

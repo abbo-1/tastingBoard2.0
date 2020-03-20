@@ -37,10 +37,10 @@ export default function ControlledOpenSelect() {
   return (
     <div>
       <Button className={classes.button} onClick={handleOpen}>
-        Open the select
+        Select Your Drink Type
       </Button>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">Drink Type</InputLabel>
+        {/* <InputLabel id="demo-controlled-open-select-label">Drink Type</InputLabel> */}
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"

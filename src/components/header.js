@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-// import AddButton from './AddButton.js'
+import AddFancyDrink from './AddFancyDrink.js'
 import SideLogo from '../images/mainLogo.png'
 
 export default function SimpleMenu(props) {
@@ -17,19 +17,12 @@ export default function SimpleMenu(props) {
     setAnchorEl(null);
   };
 
-  // const renderCardEdit = () => {
-  //   console.log("Card Edit");
-
-  //   props.reduxDispatch({
-  //     type: 'DISPLAY_CARDEDIT',
-  //     cardEdit: cardEdit
-  //   }); 
-  // }
-  
-
   return (
     <div className="header">
-      {/* <AddButton  onClick = { () => renderCardEdit() }className="addDrinksButton"/> */}
+
+      <AddFancyDrink />
+
+      <img src={SideLogo} class="sidelogo" alt="side logo"></img>
 
       <Button className= "headerMenuButton" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} >
         Menu
@@ -44,9 +37,6 @@ export default function SimpleMenu(props) {
         <MenuItem onClick={handleClose}>Change Password</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
-
-      <img src={SideLogo} class="sidelogo" alt="side logo"></img>
-
     </div>
   );
 }

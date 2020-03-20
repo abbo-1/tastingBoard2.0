@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import {  Button, Modal, Jumbotron } from 'react-bootstrap';
 import AddButton from '@material-ui/core/Button';
+import {  Button, Modal, Jumbotron } from 'bootstrap/dist/css/bootstrap.min.css';
 import { makeStyles } from '@material-ui/core/styles';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 

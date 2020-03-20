@@ -12,25 +12,26 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
 export default function IconLabelButtons() {
   const classes = useStyles();
 
-  const  [myState, setMyState] =  useState({
-        show: true
-      });
+//   const  [myState, setMyState] =  useState({
+//         show: true
+//       });
 
-  const showModal = () => {
-      if (myState.show ) {
-console.log("this button is amazing. changed state to false.")
-        // change state to not show
-        setMyState({show: false});
-      } else {
-console.log("this button is not amazing. state change to true")
-            setMyState({show: true});
-      }
+//   const showModal = () => {
+//       if (myState.show ) {
+//         console.log("this button is amazing. changed state to false.")
+//         // change state to not show
+//         setMyState({show: false});
+//         return null;
+//       } else {
+//         console.log("this button is not amazing. state change to true")
+//             setMyState({show: true});
+//             return <div>Hello Modal</div>;
+//       }
     
-}
+// }
 
   return (
     <div>
@@ -39,7 +40,7 @@ console.log("this button is not amazing. state change to true")
         color="secondary"
         className={classes.button}
         startIcon={<AddCircleIcon />}
-        onClick={ () => showModal() }
+        // onClick={ () => showModal() }
       >
         Add Drink
       </Button>

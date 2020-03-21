@@ -21,6 +21,7 @@ import DatePicker from './DatePicker.js'
 import Input from './Input.js'
 import Selector from './Selector.js'
 import MultiInput from './MultiInput.js'
+import ImageUpload from './ImageUpload.js'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -61,17 +62,7 @@ export default function CardEdit() {
           <Selector className="centerItems"/>
         </div>
         <Input />
-      <CardHeader
-        action={
-          <IconButton aria-label="settings">
-          </IconButton>
-        }
-      />
-      <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
-      />
+        <ImageUpload />
         <div className="centerItems">
           <Rating />
         </div>

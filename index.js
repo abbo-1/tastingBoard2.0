@@ -114,35 +114,40 @@ app.post('/register', function (req, res) {
 
 
 ////Drink Routes//////////////////////////
-/////Beer////////////////////////////////
-app.get('/beer', function (req, res) {
-    console.log('beer');
-    models.beer.findAll().then(function (beer){
-        console.log(beer);
-        res.send(beer);
+
+app.get('/drinks', function (req, res) {
+    console.log('drinks');
+    models.drinks.findAll().then(function (drinks){
+        console.log(drinks);
+        res.send(drinks);
     });
 });
 
-app.post('/beer', function (req, res) {
-    models.beer.create({
-        name: req.body.name,
+app.post('/drinks', function (req, res) {
+    models.drinks.create({
+        
         type: req.body.type,
+        name: req.body.name,
+        manufacturer: req.body.manufacturer,
+        rating: req.body.rating,
         date: req.body.date,
         description: req.body.description,
+        favorite: req.body.favorite,
+
     })
         .then(function () {
-            res.send('Added beer');
+            res.send('Added drinks');
         });
 });
 
-app.put('/beer/:id', function (req, res) {
-    console.log('Updating beer entry: ' + req.params.id);
+app.put('/drinks/:id', function (req, res) {
+    console.log('Updating drinks entry: ' + req.params.id);
     let updateValues = {};
-    if(req.body.beer) {
-        updateValues.beer = req.body.beer;
+    if(req.body.drinks) {
+        updateValues.beer = req.body.drinks;
     }
     console.log(updateValues);
-    models.beer.update(updateValues, { where: { id: req.params.id } })
+    models.drinks.update(updateValues, { where: { id: req.params.id } })
     .then(function (updated) {
         console.log('updated success');
         console.log(updated);
@@ -150,125 +155,23 @@ app.put('/beer/:id', function (req, res) {
     });
 });
 
-app.delete('/beer/:id', function (req, res) {
-    models.beer.delete({
-        name: req.body.name,
+app.delete('/drinks/:id', function (req, res) {
+    models.drinks.delete({
         type: req.body.type,
+        name: req.body.name,
+        manufacturer: req.body.manufacturer,
+        rating: req.body.rating,
         date: req.body.date,
         description: req.body.description,
+        favorite: req.body.favorite,
     })
-        .then(function (beer) {
-            console.log(beer);
-            res.send('new beer entry deleted with id: ' + beer.id);
+        .then(function (drinks) {
+            console.log(drinks);
+            res.send('new drinks entry deleted with id: ' + drinks.id);
         });
 });
 
 //////////////////////////////////////////////
-/////Wine////////////////////////////////
-
-app.get('/wine', function (req, res) {
-    console.log('wine');
-    models.wine.findAll().then(function (wine){
-        console.log(wine);
-        res.send(wine);
-    });
-});
-
-app.post('/wine', function (req, res) {
-    models.wine.create({
-        name: req.body.name,
-        type: req.body.type,
-        vineyard: req.body.vineyard,
-        date: req.body.date,
-        description: req.body.description,
-    })
-        .then(function () {
-            res.send('Added wine');
-        });
-});
-
-app.put('/wine/:id', function (req, res) {
-    console.log('Updating wine entry: ' + req.params.id);
-    let updateValues = {};
-    if(req.body.wine) {
-        updateValues.wine = req.body.wine;
-    }
-    console.log(updateValues);
-    models.wine.update(updateValues, { where: { id: req.params.id } })
-    .then(function (updated) {
-        console.log('updated success');
-        console.log(updated);
-        res.send(updated);
-    });
-});
-
-app.delete('/wine/:id', function (req, res) {
-    models.wine.delete({
-        name: req.body.name,
-        type: req.body.type,
-        vineyard: req.body.vineyard,
-        date: req.body.date,
-        description: req.body.description,
-    })
-        .then(function (wine) {
-            console.log(wine);
-            res.send('new wine entry deleted with id: ' + wine.id);
-        });
-});
-
-//////////////////////////////////////////////
-/////Liquor////////////////////////////////
-
-app.get('/liquor', function (req, res) {
-    console.log('liquor');
-    models.liquor.findAll().then(function (liquor){
-        console.log(liquor);
-        res.send(liquor);
-    });
-});
-
-app.post('/liquor', function (req, res) {
-    models.liquor.create({
-        name: req.body.name,
-        manufacturer: req.body.manufacturer,
-        type: req.body.type,
-        date: req.body.date,
-        description: req.body.description
-    })
-        .then(function () {
-            res.send('Added liquor');
-        });
-});
-
-app.put('/liquor/:id', function (req, res) {
-    console.log('Updating liquor entry: ' + req.params.id);
-    let updateValues = {};
-    if(req.body.liquor) {
-        updateValues.liquor = req.body.liquor;
-    }
-    console.log(updateValues);
-    models.liquor.update(updateValues, { where: { id: req.params.id } })
-    .then(function (updated) {
-        console.log('updated success');
-        console.log(updated);
-        res.send(updated);
-    });
-});
-
-app.delete('/liquor/:id', function (req, res) {
-    models.liquor.delete({
-        name: req.body.name,
-        manufacturer: req.body.manufacturer,
-        type: req.body.type,
-        date: req.body.date,
-        description: req.body.description
-    })
-        .then(function (liquor) {
-            console.log(liquor);
-            res.send('new liquor entry deleted with id: ' + liquor.id);
-        });
-});
-
 ////////////////////////////////////////////////////////////////////////
 
 app.listen(8080, () => {

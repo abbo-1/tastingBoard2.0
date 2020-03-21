@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import GoogleOauth from 'react-google-login';
 
 // import Logo from '../images/tbMainLogoWood.png'
 
@@ -174,6 +175,7 @@ export default function SignInSide() {
                 id="reEnterPassword"
                 autoComplete="current-password"
               />
+              <GoogleOauth />
               </Grid>
             {/* <Grid item xs={12}>
               <FormControlLabel

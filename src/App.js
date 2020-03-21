@@ -13,6 +13,7 @@ import Navbar from './components/Navbar';
 import Header from './components/Header.js';
 import SignUpSide from './components/SignUpSide';
 import Card from './components/Card.js';
+import GoogleOauth from 'react-google-login';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         < Navbar />
         <Card />
         <ImageUpload/>
+        <GoogleOauth />
       </body>
     </div>
   );

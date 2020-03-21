@@ -9,13 +9,19 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
     "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
     "passport": "^0.4.1",
+    "passport-google-oauth": "^2.0.0",
     "passport-jwt": "^4.0.0",
+    "path": "^0.12.7",
     "pbkdf2": "^3.0.17",
     "pg": "^7.18.2",
     "pg-hstore": "^2.3.3",
@@ -30,6 +36,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "sequelize": "^5.21.5",
+    "uuid": "^7.0.2",
     "validator": "^12.2.0"
   },
   "scripts": {
@@ -52,5 +59,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageUpload from './components/ImageUpload';
 import './App.css';
 
 import Navbar from './components/Navbar';
@@ -21,10 +22,11 @@ function App() {
   //Store.getState().showCardEdit;
 
   return (
-    <div className="App">
+    <div className='App'>
       <body>
         < SignUpSide />
         < Header />
+       
         <Navbar reduxDispatch = {Store.dispatch} />
         <Render reduxState = {Store.getState()} />
         {/* <Card />

@@ -26,6 +26,7 @@ function App() {
       <body>
         < SignUpSide />
         < Header />
+       
         <Navbar reduxDispatch = {Store.dispatch} />
         <Render reduxState = {Store.getState()} />
         {/* <Card />

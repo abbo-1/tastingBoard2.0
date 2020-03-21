@@ -9,13 +9,10 @@ const multer = require("multer");
 const router = express.Router();
 
 const passport = require('passport');
-
-
 // PG-PROMISE INIT OPTIONS
 const initOptions = {
     promiseLib: promise,
 };
-
 // CONNECTING TO LOCAL DATABASE
 const config = {
     host: 'localhost',
@@ -25,10 +22,7 @@ const config = {
     username: 'postgres',
     password: 'null'
 };
-
-
 ////////Image Uploading///////////////
-
 /////Configure Storage////////////////
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -53,24 +47,18 @@ const storage = multer.diskStorage({
   });
   // create the multer instance that will be used to upload/save the file
   const upload = multer({ storage });
-
 ////////////////////////////////////////////
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 ////Basic routes/////////////////////////
 app.get('/', (req, res) => {
     res.send('Welcome to the Tasting Board!')
 });
-
 app.post('/uploadPic', (req, res) => {
    console.log('uploaded pic')
    let upload = multer({ storage: storage}).single('profile_pic');
-
        // req.file contains information of uploaded file
        // req.body contains information of text fields, if there were any
-
        if (req.fileValidationError) {
            return res.send(req.fileValidationError);
        }
@@ -85,36 +73,27 @@ app.post('/uploadPic', (req, res) => {
        }
       res.send('hello');
     });
-
 ////User routes/////////////////////////////
 app.get('/user', (req, res) => {
     res.send('Users appear here')
 });
-
 app.post('/user', function (req, res) {
     res.send('Added user. Beep boop.')
 });
-
 app.put('/user/:id', function (req, res) {
     res.send('Got a PUT request at /user')
 });
-
 app.delete('/user/:id', function (req, res) {
     res.send('Got a DELETE request at /user')
 });
-
 ////registration routes
 app.get('/register', (req, res) => {
     res.send('Register a user here')
 });
-
 app.post('/register', function (req, res) {
     res.send('Registered a user')
 });
-
-
 ////Drink Routes//////////////////////////
-
 app.get('/drinks', function (req, res) {
     console.log('drinks');
     models.drinks.findAll().then(function (drinks){
@@ -122,10 +101,9 @@ app.get('/drinks', function (req, res) {
         res.send(drinks);
     });
 });
-
 app.post('/drinks', function (req, res) {
+    console.log(req.body)
     models.drinks.create({
-        
         type: req.body.type,
         name: req.body.name,
         manufacturer: req.body.manufacturer,
@@ -133,7 +111,6 @@ app.post('/drinks', function (req, res) {
         date: req.body.date,
         description: req.body.description,
         favorite: req.body.favorite,
-
     })
         .then(function () {
             res.send('Added drinks');
@@ -173,8 +150,6 @@ app.delete('/drinks/:id', function (req, res) {
 
 //////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-
 app.listen(8080, () => {
     console.log(`Tasting Board app listening on port ${PORT}`)
 });
-

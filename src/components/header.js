@@ -16,20 +16,13 @@ export default function SimpleMenu() {
 
   return (
     <div className="header">
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Open Menu
-      </Button>
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu>
+      <AppBar position="static">
+        <Toolbar>
+        <AddFancyDrink />
+        <img src={SideLogo} class="sidelogo" alt="side logo"></img>
+          <Button color="inherit">Log Out</Button>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 }

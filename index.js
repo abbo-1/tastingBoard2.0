@@ -262,4 +262,3 @@ app.delete('/liquor/:id', function (req, res) {
 app.listen(8080, () => {
     console.log(`Tasting Board app listening on port ${PORT}`)
 });
-

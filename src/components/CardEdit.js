@@ -18,7 +18,8 @@ import EditIcon from '@material-ui/icons/Edit';
 
 import Rating from './Rating.js';
 import DatePicker from './DatePicker.js'
-import Input from './Input.js'
+import InputName from './InputName.js'
+import InputManufacturer from './InputManufacturer.js'
 import Selector from './Selector.js'
 import MultiInput from './MultiInput.js'
 
@@ -60,7 +61,8 @@ export default function CardEdit() {
         <div className="centerItems">
           <Selector className="centerItems"/>
         </div>
-        <Input />
+        <InputName />
+        <InputManufacturer />
       <CardHeader
         action={
           <IconButton aria-label="settings">

@@ -22,6 +22,7 @@ import Input from './Input.js'
 import Selector from './Selector.js'
 import MultiInput from './MultiInput.js'
 import ImageUpload from './ImageUpload.js'
+import Submit from './SubmitButton.js'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -57,13 +58,19 @@ export default function CardEdit() {
   return (
     <div className = "addFancyDrink">
       <Card className={classes.root}>
+      <h2 id="transition-modal-title">
+              Tell us about your drink!
+        </h2>
         <div className= "cardBackground">
         <div className="centerItems">
           <Selector className="centerItems"/>
         </div>
         <Input />
-        <ImageUpload />
         <div className="centerItems">
+        <ImageUpload />
+        </div>
+        <div className="centerItems">
+        <br/>
           <Rating />
         </div>
         <br/>
@@ -77,9 +84,6 @@ export default function CardEdit() {
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -89,6 +93,7 @@ export default function CardEdit() {
           aria-label="show more"
         >
         </IconButton>
+        <Submit />
        </CardActions>
        </div>
     </Card>

@@ -3,7 +3,11 @@ const app = express();
 const bodyParser = require("body-parser");
 const models = require('./models');
 const promise = require('bluebird');
-
+const PORT = process.env.PORT || 8080;
+const path = require("path");
+const multer = require("multer");
+const router = express.Router();
+const passport = require('passport');
 
 
 // PG-PROMISE INIT OPTIONS
@@ -21,13 +25,64 @@ const config = {
     password: 'null'
 };
 
+////////Image Uploading///////////////
+
+/////Configure Storage////////////////
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      /*
+        Files will be saved in the 'uploads' directory. Make
+        sure this directory already exists!
+      */
+      cb(null, './public/uploadPic');
+    },
+    filename: (req, file, cb) => {
+      /*
+        uuidv4() will generate a random ID that we'll use for the
+        new filename. We use path.extname() to get
+        the extension from the original file name and add that to the new
+        generated ID. These combined will create the file name used
+        to save the file on the server and will be available as
+        req.file.pathname in the router handler.
+      */
+      const newFilename = `${uuidv4()}${path.extname(file.originalname)}`;
+      cb(null, newFilename);
+    },
+  });
+  // create the multer instance that will be used to upload/save the file
+  const upload = multer({ storage });
+
+////////////////////////////////////////////
+
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 ////Basic routes/////////////////////////
 app.get('/', (req, res) => {
     res.send('Welcome to the Tasting Board!')
 });
+
+app.post('/uploadPic', (req, res) => {
+   console.log('uploaded pic')
+   let upload = multer({ storage: storage}).single('profile_pic');
+
+       // req.file contains information of uploaded file
+       // req.body contains information of text fields, if there were any
+
+       if (req.fileValidationError) {
+           return res.send(req.fileValidationError);
+       }
+       else if (!req.file) {
+           return res.send('Please select an image to upload');
+       }
+       else if (err instanceof multer.MulterError) {
+           return res.send(err);
+       }
+       else if (err) {
+           return res.send(err);
+       }
+      res.send('hello');
+    });
 
 ////User routes/////////////////////////////
 app.get('/user', (req, res) => {
@@ -204,7 +259,7 @@ app.delete('/liquor/:id', function (req, res) {
 
 ////////////////////////////////////////////////////////////////////////
 
-app.listen(8080, function () {
-    console.log('Tasting Board app listening on port 8080')
+app.listen(8080, () => {
+    console.log(`Tasting Board app listening on port ${PORT}`)
 });
 

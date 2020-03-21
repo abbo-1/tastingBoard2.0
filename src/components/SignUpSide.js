@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import GoogleOauth from 'react-google-login';
 
 // import Logo from '../images/tbMainLogoWood.png'
 
@@ -119,13 +120,13 @@ export default function SignInSide() {
           <Typography component="h1" variant="h6">
             Sign Up
           </Typography>
-          <p class = "signInText">Remember that incredible <span
-            class="txt-rotate"
+          <p className = "signInText">Remember that incredible <span
+            className="txt-rotate"
             data-period="2000"
             data-rotate='[ "bottle of wine ", "IPA ","cocktail ", "stout ", "brand of whiskey "]'>
           </span>you tried that one time? <br/>You remember, right? It started with an "S" I think? It had a red label...or was it green?</p>   
             <br />
-            <p class = "signInText">With Tasting Board you can log, track, and rate all the drinks you'll never forget again!</p>
+            <p className = "signInText">With Tasting Board you can log, track, and rate all the drinks you'll never forget again!</p>
           <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -174,6 +175,7 @@ export default function SignInSide() {
                 id="reEnterPassword"
                 autoComplete="current-password"
               />
+              <GoogleOauth />
               </Grid>
             {/* <Grid item xs={12}>
               <FormControlLabel

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import UploadButton from './ImageUploadButton.js'
 
 class ImageUpload extends Component {
   render() {
@@ -8,11 +9,8 @@ class ImageUpload extends Component {
         action='http://localhost:8080/uploadPic'
         encType='multipart/form-data'
       >
-        <input type='text' name='description' />
         <input type='file' name='selectedFile' onChange={this.onChange} />
-        <button type='submit' value='upload'>
-          Submit
-        </button>
+        <UploadButton type='submit' value='upload'></UploadButton>
       </form>
     );
   }

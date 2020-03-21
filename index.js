@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 8080;
 const path = require("path");
 const multer = require("multer");
 const router = express.Router();
+
 const passport = require('passport');
 
 
@@ -24,6 +25,7 @@ const config = {
     username: 'postgres',
     password: 'null'
 };
+
 
 ////////Image Uploading///////////////
 
@@ -100,6 +102,16 @@ app.put('/user/:id', function (req, res) {
 app.delete('/user/:id', function (req, res) {
     res.send('Got a DELETE request at /user')
 });
+
+////registration routes
+app.get('/register', (req, res) => {
+    res.send('Register a user here')
+});
+
+app.post('/register', function (req, res) {
+    res.send('Registered a user')
+});
+
 
 ////Drink Routes//////////////////////////
 /////Beer////////////////////////////////

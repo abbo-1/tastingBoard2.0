@@ -1,14 +1,50 @@
 .header {
     background-color: lightgrey;
-    height: 50px;
+    position: relative;
+    height: auto;
+    width:100%;
+    display: inline-block;
+}
+
+.headerMenuButton {
+    float: right;
+    position: absolute;
+    display: block;
+}
+
+.sidelogo {
+    width: 20%;
+    padding: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
 }
 
 .signInText {
     font-size: 16px;
     text-align: center;
-  }
+}
 
-  .signInLogo {
+.signInLogo {
       float: left;
       width: 500px;
-  }
+}
+
+.addFancyDrink {
+    text-align: center;
+    padding: 120px;
+    
+}
+
+.cardBackground {
+    background-image: url(./images/background6.png);
+}
+
+.centerItems {
+    margin: auto;
+    display: inline-block
+}
+
+body {
+    background-image: url(./images/background5.png);
+}

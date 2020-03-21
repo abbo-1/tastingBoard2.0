@@ -14,13 +14,11 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import EditIcon from '@material-ui/icons/Edit';
-
-
 
 import Rating from './Rating.js';
 import DatePicker from './DatePicker.js'
+// import CardEdit from './CardEdit.js'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -45,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function RecipeReviewCard() {
+export default function InfoCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 

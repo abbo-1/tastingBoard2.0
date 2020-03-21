@@ -11,14 +11,27 @@ const useStyles = makeStyles({
     },
   });
   
-  export default function CenteredTabs() {
+  export default function Navbar(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+    console.log(props)
   
     const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
-  
+    setValue(newValue);
+    console.log(newValue);
+    // KEEPING TRACK OF POSITION
+    }
+
+    const handleClick = (drinkChoice) => {
+      console.log(drinkChoice);
+      console.log(props)
+
+      props.reduxDispatch({
+        type: 'CHANGE_DRINKS',
+        drinkChoice: drinkChoice
+      });
+    }
+    
     return (
       <Paper className={classes.root}>
         <Tabs
@@ -28,20 +41,13 @@ const useStyles = makeStyles({
           textColor="primary"
           centered
         >
-          {/* <Tab onClick = { () =>this.handleChoice("all") } label="All" />
-          <Tab onClick = { () =>this.handleChoice("wine") } label="Wine" />
-          <Tab onClick = { () =>this.handleChoice("beer") } label="Beer" />
-          <Tab onClick = { () =>this.handleChoice("liquor") } label="Liquor" />
-          <Tab onClick = { () =>this.handleChoice("cocktails") } label="Cocktail" />
-          <Tab onClick = { () =>this.handleChoice("favorites") } label="Favorites" /> */}
-          <Tab label="All" />
-          <Tab label="Wine" />
-          <Tab label="Beer" />
-          <Tab label="Liquor" />
-          <Tab label="Cocktail" />
-          <Tab label="Favorites" />
+          <Tab onClick = { () => handleClick("All") } label="All" />
+          <Tab onClick = { () => handleClick("Wine") } label="Wine" />
+          <Tab onClick = { () => handleClick("Beer") } label="Beer" />
+          <Tab onClick = { () => handleClick("Liquor") }label="Liquor" />
+          <Tab onClick = { () => handleClick("Cocktail") } label="Cocktail" />
+          <Tab onClick = { () => handleClick("Favorites") } label="Favorites" />
           </Tabs>
       </Paper>
     );
   }
-  

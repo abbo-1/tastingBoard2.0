@@ -48,3 +48,7 @@
 body {
     background-image: url(./images/background5.png);
 }
+
+.header {
+    background-color: blue;
+}

@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 8080;
 const path = require("path");
 const multer = require("multer");
 const router = express.Router();
+
 const passport = require('passport');
 // PG-PROMISE INIT OPTIONS
 const initOptions = {
@@ -115,6 +116,7 @@ app.post('/drinks', function (req, res) {
             res.send('Added drinks');
         });
 });
+
 app.put('/drinks/:id', function (req, res) {
     console.log('Updating drinks entry: ' + req.params.id);
     let updateValues = {};
@@ -129,6 +131,7 @@ app.put('/drinks/:id', function (req, res) {
         res.send(updated);
     });
 });
+
 app.delete('/drinks/:id', function (req, res) {
     models.drinks.delete({
         type: req.body.type,
@@ -144,6 +147,7 @@ app.delete('/drinks/:id', function (req, res) {
             res.send('new drinks entry deleted with id: ' + drinks.id);
         });
 });
+
 //////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 app.listen(8080, () => {

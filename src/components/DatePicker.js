@@ -21,7 +21,7 @@ export default function DatePickers() {
     <form className={classes.container} noValidate>
       <TextField
         id="date"
-        label="Date Consumed:"
+        label="When did you have it?"
         type="date"
         defaultValue="date"
         className={classes.textField}

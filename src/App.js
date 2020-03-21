@@ -8,7 +8,6 @@ import './App.css';
 // COMPONENTS
 // import Header from './components/header'
 
-
 import Navbar from './components/Navbar';
 import Header from './components/Header.js';
 import SignUpSide from './components/SignUpSide';
@@ -17,13 +16,13 @@ import GoogleOauth from 'react-google-login';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <body>
-        < SignUpSide />
-        < Header />
-        < Navbar />
+        <SignUpSide />
+        <Header />
+        <Navbar />
         <Card />
-        <ImageUpload/>
+        <ImageUpload />
         <GoogleOauth />
       </body>
     </div>

@@ -59,7 +59,7 @@ export default function TransitionsModal() {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <div >
             <h2 id="transition-modal-title">Drink Information</h2>
             <CardEdit />
           </div>

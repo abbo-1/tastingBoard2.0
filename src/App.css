@@ -30,7 +30,20 @@
       width: 500px;
 }
 
+.addFancyDrink {
+    text-align: center;
+    padding: 120px;
+    
+}
 
+.cardBackground {
+    background-image: url(./images/background6.png);
+}
+
+.centerItems {
+    margin: auto;
+    display: inline-block
+}
 
 body {
     background-image: url(./images/background5.png);

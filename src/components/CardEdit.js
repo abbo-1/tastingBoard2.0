@@ -69,12 +69,12 @@ const addDrinkToDatabase = () => {
   //   setDrinkInfo({...drinkInfo, [event.target.name]: event.target.value})
   // }
   let drinkInfo = {
-    type: "beer",
-    name: "luis's beer",
+    type: props.reduxState.type,
+    name:  props.reduxState.name,
     manufacturer: props.reduxState.manufacturer,
-    rating: 5.0,
+    rating: props.reduxState.rating,
     date: "3/22/2020",
-    description: "greatest beer ever",
+    description: props.reduxState.description,
     favorite: true
   }
 
@@ -82,28 +82,20 @@ const addDrinkToDatabase = () => {
     // e.preventDefault()
     console.log(drinkInfo)
 
-    var postOptions = {
+    var options = {
       method: 'POST',
       url: 'http://localhost:8080/drinks',
-      // data: drinkInfo,
-      headers: {
-          'Content-Type': 'application/json',
-          
-      },
-      json: true
+      data: drinkInfo
     };
 
-    axios.post( postOptions )
-      .then(function (response) {
-        console.log("this is a response")
-        console.log(response)
+    axios.request(options)
+      .then(response => {
+        console.log("My response",response);
       })
-      .catch(function (error) {
-        console.log("this is an error")
-        console.log(error)
+      .catch(error => {
+        console.log("MyError:", error);
       })
 }
-
 
   return (
     <div className = "addFancyDrink">

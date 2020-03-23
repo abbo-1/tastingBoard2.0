@@ -11,12 +11,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function MultilineTextFields() {
+export default function MultilineTextFields(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState('Controlled');
 
   const handleChange = event => {
     setValue(event.target.value);
+    console.log(event.target.value)
+    props.reduxDispatch ({ type: "DESCRIPTION_CHANGE", value: event.target.value })
   };
 
   return (

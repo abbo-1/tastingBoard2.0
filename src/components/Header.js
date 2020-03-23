@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Store from '../store.js';
 
 import AddFancyDrink from './AddFancyDrink.js'
 import SideLogo from '../images/mainLogo.png'
@@ -22,14 +23,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Header() {
+export default function Header(props) {
   const classes = useStyles();
+
+
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-        <AddFancyDrink />
+        <AddFancyDrink reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
         <img src={SideLogo} class="sidelogo" alt="side logo"></img>
           <Button color="inherit">Log Out</Button>
         </Toolbar>

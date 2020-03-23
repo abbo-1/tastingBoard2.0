@@ -24,12 +24,12 @@ function App() {
     <div className='App'>
       <body>
         <SignUpSide />
-        <Header />
+        <Header reduxDispatch={Store.dispatch} reduxState ={Store.getState()} />
 
         <Navbar reduxDispatch={Store.dispatch} />
         <Render reduxState={Store.getState()} />
-        {/* <Card />
-        <CardEdit /> */}
+ <Card /> 
+        {/* <CardEdit /> */} 
       </body>
     </div>
   );

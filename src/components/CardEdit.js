@@ -6,15 +6,15 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import EditIcon from '@material-ui/icons/Edit';
+import axios from 'axios';
+
+import useAxios from "axios-hooks";
 
 import Rating from './Rating.js';
 import DatePicker from './DatePicker.js'
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function CardEdit() {
+export default function CardEdit(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -56,18 +56,67 @@ export default function CardEdit() {
     setExpanded(!expanded);
   };
 
+const addDrinkToDatabase = () => {
+  console.log("drink button works")
+  console.log(props.reduxState)
+
+  // {drinkManufacturer: "whatevertheuserenter"}
+
+  // const [drinkInfo, setDrinkInfo] = useState(
+  //   { drinkType: '', drinkName: '', drinkManufacturer: '', date:'', rating: '', comments: '', favorite: 'false'}
+  // );
+  // const handleChange = (event) => {
+  //   setDrinkInfo({...drinkInfo, [event.target.name]: event.target.value})
+  // }
+  let drinkInfo = {
+    type: "beer",
+    name: "luis's beer",
+    manufacturer: props.reduxState.manufacturer,
+    rating: 5.0,
+    date: "3/22/2020",
+    description: "greatest beer ever",
+    favorite: true
+  }
+
+  // const handleSubmit = (e) => {
+    // e.preventDefault()
+    console.log(drinkInfo)
+
+    var postOptions = {
+      method: 'POST',
+      url: 'http://localhost:8080/drinks',
+      // data: drinkInfo,
+      headers: {
+          'Content-Type': 'application/json',
+          
+      },
+      json: true
+    };
+
+    axios.post( postOptions )
+      .then(function (response) {
+        console.log("this is a response")
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log("this is an error")
+        console.log(error)
+      })
+}
+
+
   return (
     <div className = "addFancyDrink">
       <Card className={classes.root}>
-      <h2 id="transition-modal-title">
-              Tell us about your drink!
+        <h2 id="transition-modal-title">
+          Tell us about your drink!
         </h2>
         <div className= "cardBackground">
-        <div className="centerItems">
-          <Selector className="centerItems"/>
-        </div>
-        <InputName />
-        <InputManufacturer />
+          <div className="centerItems">
+            <Selector  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
+          </div>
+          <InputName  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
+          <InputManufacturer  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
       <CardHeader
         action={
           <IconButton aria-label="settings">
@@ -80,36 +129,38 @@ export default function CardEdit() {
         title="Paella dish"
       />
         <div className="centerItems">
-        <ImageUpload />
+          <ImageUpload />
         </div>
         <div className="centerItems">
-        <br/>
-          <Rating />
+          <br/>
+          <Rating  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
         </div>
-        <br/>
         <div className="centerItems">
-          <DatePicker  className="centerItems"/>
+          <br/>
+          <DatePicker  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
         </div>
-        <CardContent>
-        <MultiInput />
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton
-          className={clsx(classes.expand, {
+          <CardContent>
+          <MultiInput  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
+          <FavoriteIcon/>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
+          </IconButton>
+          <IconButton
+            className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-        </IconButton>
-        <Submit />
-       </CardActions>
-       </div>
-    </Card>
+             })}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+          </IconButton>
+          <button onClick = { addDrinkToDatabase } >Log Drink</button>
+          </CardActions>
+        </div>
+      </Card>
     </div>
   );
+  
 }

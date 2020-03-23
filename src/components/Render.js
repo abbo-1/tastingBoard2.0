@@ -8,30 +8,9 @@ class Render  extends React.Component {
         console.log("Here are your props", props);
 }
 
-// state = this.getCurrentStateFromStore()
+  getDrinks = (e) => {
     
-//   getCurrentStateFromStore() {
-//     return {
-//       drinkChoice: store.getState().drinkChoice,
-//     }
-//  }
-  
-//   updateStateFromStore = () => {
-//     const currentState = this.getCurrentStateFromStore();
-//     this.setState(currentState)
-//  }
-  
-//   componentDidMount() {
-//     this.unsubscribeStore = store.subscribe(this.updateStateFromStore);
-// }
-  
-// componentWillUnmount() {
-//     this.unsubscribeStore();
-// }
-
-// handleChoice(choice) {
-//       this.props.dispatch({ type:'CHANGE_DRINKS', choice: choice})
-// }
+  }
 
 render() {
     console.log("Look here:", this.props)

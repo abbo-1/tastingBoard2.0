@@ -27,6 +27,7 @@ import Selector from './Selector.js'
 import MultiInput from './MultiInput.js'
 import ImageUpload from './ImageUpload.js'
 import TemporaryRating from './TempRating.jsx'
+import TemporaryFavorite from './TempFavorite.jsx'
 import Submit from './SubmitButton.js'
 
 const useStyles = makeStyles(theme => ({
@@ -54,11 +55,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function CardEdit(props) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
 const addDrinkToDatabase = () => {
   console.log("drink button works")
@@ -79,7 +75,7 @@ const addDrinkToDatabase = () => {
     rating: props.reduxState.rating,
     date: props.reduxState.date,
     description: props.reduxState.description,
-    favorite: true
+    favorite: props.reduxState.favorite
   }
 
   // const handleSubmit = (e) => {
@@ -136,9 +132,10 @@ const addDrinkToDatabase = () => {
                 {/* COMMENT SECTION INPUT */}
               <MultiInput  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
                 {/* FAVORITE SELECTION BUTTON */}
-              <IconButton aria-label="add to favorites">
-              <FavoriteIcon  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState} onClick = {console.log("this button")}/>
-              </IconButton>
+                <TemporaryFavorite reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState} />
+              {/* <IconButton aria-label="add to favorites">
+              <FavoriteIcon  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState} onClick = {console.log("this button")}/> */}
+              {/* </IconButton> */}
               <button onClick = { addDrinkToDatabase } >Log Drink</button>
               </div>
             </Card>

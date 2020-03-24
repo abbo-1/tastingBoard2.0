@@ -30,11 +30,11 @@ export default function HoverRating(props) {
 
   const classes = useStyles();
   
-  const onRatingChange = (event) => {
-    console.log(event.target.value)
-    props.reduxDispatch ({ type: "RATING_CHANGE", value: event.target.newValue 
-    })
-  }
+  // const onRatingChange = (event) => {
+  //   console.log(event.target.value)
+  //   props.reduxDispatch ({ type: "RATING_CHANGE", value: event.target.newValue 
+  //   })
+  // }
 
   return (
     <div className={classes.root}>
@@ -51,7 +51,7 @@ export default function HoverRating(props) {
         onChangeActive={(event, newHover) => {
           setHover(newHover);
         }}
-        onRatingChange = {onRatingChange}
+        // onRatingChange = {onRatingChange}
       />
       <br/>
       {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}

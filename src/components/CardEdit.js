@@ -26,6 +26,7 @@ import InputManufacturer from './InputManufacturer.js'
 import Selector from './Selector.js'
 import MultiInput from './MultiInput.js'
 import ImageUpload from './ImageUpload.js'
+import TemporaryRating from './TempRating.jsx'
 import Submit from './SubmitButton.js'
 
 const useStyles = makeStyles(theme => ({
@@ -124,7 +125,8 @@ const addDrinkToDatabase = () => {
               <div className="centerItems">
                 <br/>
                 {/* STAR RATING INPUT */}
-                <Rating  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
+                {/* <Rating  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/> */}
+                <TemporaryRating reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
               </div>
               <div className="centerItems">
               <br/>

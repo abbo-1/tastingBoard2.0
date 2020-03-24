@@ -26,10 +26,11 @@ export default function MultilineTextFields(props) {
       <div>
         <TextField
           id="outlined-multiline-static"
-          label="Comment"
+          label="Any Comments?"
           multiline
           rows="5"
           variant="outlined"
+          onChange={ handleChange }
         />
       </div>
     </form>

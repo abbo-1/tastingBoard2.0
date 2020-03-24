@@ -14,8 +14,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function DatePickers() {
+export default function DatePickers(props) {
   const classes = useStyles();
+
+  const onDateSelection  = (e) => {
+    console.log(e.target.value)
+    props.reduxDispatch ({ type: "DATE_CHANGE", value: e.target.value })
+}
 
   return (
     <form className={classes.container} noValidate>
@@ -28,6 +33,7 @@ export default function DatePickers() {
         InputLabelProps={{
           shrink: true,
         }}
+        onChange = { onDateSelection }
       />
     </form>
   );

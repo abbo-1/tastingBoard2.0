@@ -23,7 +23,7 @@ function App() {
   return (
     <div className='App'>
       <body>
-        <SignUpSide />
+        {/* <SignUpSide /> */}
         <Header reduxDispatch={Store.dispatch} reduxState ={Store.getState()} />
 
         <Navbar reduxDispatch={Store.dispatch} />

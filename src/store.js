@@ -36,6 +36,10 @@ const store = createStore((state = initialState, action) => {
             console.log("in reducer description")
             return { ...state, description : action.value };
         }
+        else if(action.type === "DATE_CHANGE"){
+            console.log("in reducer DATE")
+            return { ...state, date : action.value };
+        }
      else {
         return state;
     }

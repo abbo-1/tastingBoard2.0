@@ -27,7 +27,14 @@ const useStyles = makeStyles({
 export default function HoverRating(props) {
   const [value, setValue] = React.useState(2);
   const [hover, setHover] = React.useState(-1);
+
   const classes = useStyles();
+  
+  const onRatingChange = (event) => {
+    console.log(event.target.value)
+    props.reduxDispatch ({ type: "RATING_CHANGE", value: event.target.newValue 
+    })
+  }
 
   return (
     <div className={classes.root}>
@@ -39,17 +46,14 @@ export default function HoverRating(props) {
         size="large"
         onChange={(event, newValue) => {
           setValue(newValue);
-          
-          // THIS IS MY STUFF THAT ISNT WORKING
-          console.log(event.target.value)
-          props.reduxDispatch ({ type: "RATING_CHANGE", value: event.target.value 
-        })
-            // THIS IS MY STUFF THAT ISNT WORKING
+          console.log("your newValue is " +  newValue)
         }}
         onChangeActive={(event, newHover) => {
           setHover(newHover);
         }}
+        onRatingChange = {onRatingChange}
       />
+      <br/>
       {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
     </div>
   );

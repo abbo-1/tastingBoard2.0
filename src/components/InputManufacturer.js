@@ -11,12 +11,17 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function BasicTextFields() {
+export default function BasicTextFields(props) {
   const classes = useStyles();
+
+  const onTextChange = (e) => {
+      console.log(e.target.value)
+      props.reduxDispatch ({ type: "MANUFACTURER_CHANGE", value: e.target.value })
+  }
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Who made it?" variant="outlined" />
+      <TextField id="outlined-basic" label="Who made it?" variant="outlined" onChange={ onTextChange } />
     </form>
   );
 }

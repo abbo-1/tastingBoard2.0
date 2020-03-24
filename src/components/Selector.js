@@ -79,7 +79,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function NativeSelects() {
+export default function NativeSelects(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     age: '',
@@ -92,6 +92,8 @@ export default function NativeSelects() {
       ...state,
       [name]: event.target.value,
     });
+    console.log(event.target.value)
+    props.reduxDispatch ({ type: "DRINKTYPE_CHANGE", value: event.target.value })
   };
 
   return (
@@ -100,18 +102,18 @@ export default function NativeSelects() {
         <InputLabel htmlFor="filled-age-native-simple">What kind of drink is it?</InputLabel>
         <Select
           native
-          value={state.age}
+          value={state.type}
           onChange={handleChange}
           inputProps={{
-            name: 'age',
+            name: 'type',
             id: 'filled-age-native-simple',
           }}
         >
           <option aria-label="Select" value="" />
-          <option value={"Wine"}>Wine</option>
+          <option  value={"Wine"}>Wine</option>
           <option value={"Beer"}>Beer</option>
-          <option value={"Liquor"}>Liquor</option>
-          <option value={"Cocktail"}>Cocktail</option>
+          <option  value={"Liquor"}>Liquor</option>
+          <option  value={"Cocktail"}>Cocktail</option>
         </Select>
       </FormControl>
     </div>

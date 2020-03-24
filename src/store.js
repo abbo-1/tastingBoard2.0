@@ -11,7 +11,36 @@ const store = createStore((state = initialState, action) => {
 
             return { ...state, drinkChoice : action.drinkChoice };
 
-    } else {
+        } 
+        else if (action.type === "MANUFACTURER_CHANGE") {
+
+            console.log("in reducer manufacturer") 
+            return { ...state, manufacturer : action.value };
+        
+        }
+        else if (action.type === "NAME_CHANGE"){
+
+            console.log("in reducer name") 
+            return { ...state, name : action.value };
+
+        }
+        else if (action.type ==="DRINKTYPE_CHANGE"){
+            console.log("in reducer drink type selection")
+            return { ...state, type : action.value };
+        }
+        else if(action.type === "RATING_CHANGE"){
+            console.log("in reducer rating change")
+            return { ...state, rating : action.value };
+        }
+        else if(action.type === "DESCRIPTION_CHANGE"){
+            console.log("in reducer description")
+            return { ...state, description : action.value };
+        }
+        else if(action.type === "DATE_CHANGE"){
+            console.log("in reducer DATE")
+            return { ...state, date : action.value };
+        }
+     else {
         return state;
     }
 });

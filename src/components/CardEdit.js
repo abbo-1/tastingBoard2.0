@@ -96,29 +96,30 @@ const addDrinkToDatabase = () => {
       })
 }
 
-***********
+// ***********
 
-const submitButtonFunctions = () => {
-  if ( { checkIfFieldsEmpty() } ) {
-    { addDrinkToDatabase() }
-  }
-  else {
-    console.log ("You need to enter more information")
-  }
-}
-
-******
-
-const submitForm= ()=> {
-  if (validator.allValid()) {
-    alert('You submitted the form and stuff!');
-  } else {
-    validator.showMessages();
+// const submitButtonFunctions = () => {
+//   if () 
+  // if ( { checkIfFieldsEmpty() } ) {
+  //   { addDrinkToDatabase() }
+  // }
+  // else {
+  //   console.log ("You need to enter more information")
   }
 }
 
+// ******
 
-*****
+// const submitForm= ()=> {
+//   if () {
+//     alert('You submitted the form and stuff!');
+//   } else {
+//     validator.showMessages();
+//   }
+// }
+
+
+// *****
 
   return (
     <div className = "addFancyDrink">

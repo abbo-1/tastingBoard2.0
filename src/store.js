@@ -4,7 +4,6 @@ const initialState = {
     drinkChoice: "all"
 }
 
-
 const store = createStore((state = initialState, action) => { 
             console.log("Action:", action)
         if (action.type === "CHANGE_DRINKS" ) {
@@ -39,6 +38,10 @@ const store = createStore((state = initialState, action) => {
         else if(action.type === "DATE_CHANGE"){
             console.log("in reducer DATE")
             return { ...state, date : action.value };
+        }
+        else if (action.type === "FAVORITE_CHANGE") {
+            console.log("in reducer FAVORITE")
+            return { ...state, favorite : action.value };
         }
      else {
         return state;

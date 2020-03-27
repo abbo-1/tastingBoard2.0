@@ -79,7 +79,7 @@ export default function InfoCard() {
         <br/>
         <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-        Lush, energetic and intense, this gorgeous Cabernet begins with aromas of blackberry, huckleberry and chocolate, as well as hints of mint, cardamom, clove and graham cracker. On the palate it displays lovely brightness, with firm, resolved tannins framing flavors of boysenberry and black currant. As it evolves in the glass, subtle sweet and savory notes are revealed, carrying the wine to a long, focused finish.
+          {/* {description} */}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

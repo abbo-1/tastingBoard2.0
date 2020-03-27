@@ -1,18 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import axios from 'axios';
+
+import SendIcon from '@material-ui/icons/Send';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import Container from 'react-bootstrap/Container';
@@ -28,6 +21,7 @@ import MultiInput from './MultiInput.js'
 import ImageUpload from './ImageUpload.js'
 import TemporaryRating from './TempRating.jsx'
 import TemporaryFavorite from './TempFavorite.jsx'
+import CancelIcon from '@material-ui/icons/Cancel';
 import Submit from './SubmitButton.js'
 
 const useStyles = makeStyles(theme => ({
@@ -54,20 +48,23 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function CardEdit(props) {
-  const classes = useStyles();
+const classes = useStyles();
+
+      // closeDialog = function (closeButton) {
+    //   var topDialog = aria.cardEdit();
+    //   if (topDialog.dialogNode.contains(closeButton)) {
+    //     topDialog.close();
+    //   }
+    // }
+
+const closeDialog = () => {
+
+}
 
 const addDrinkToDatabase = () => {
-  console.log("drink button works")
-  console.log(props.reduxState)
 
-  // {drinkManufacturer: "whatevertheuserenter"}
+  console.log("props.reduxState is", props.reduxState)
 
-  // const [drinkInfo, setDrinkInfo] = useState(
-  //   { drinkType: '', drinkName: '', drinkManufacturer: '', date:'', rating: '', comments: '', favorite: 'false'}
-  // );
-  // const handleChange = (event) => {
-  //   setDrinkInfo({...drinkInfo, [event.target.name]: event.target.value})
-  // }
   let drinkInfo = {
     type: props.reduxState.type,
     name:  props.reduxState.name,
@@ -80,7 +77,7 @@ const addDrinkToDatabase = () => {
 
   // const handleSubmit = (e) => {
     // e.preventDefault()
-    console.log(drinkInfo)
+    console.log("CardEdit says this is the info: ", drinkInfo)
 
     var options = {
       method: 'POST',
@@ -91,11 +88,37 @@ const addDrinkToDatabase = () => {
     axios.request(options)
       .then(response => {
         console.log("My response", response);
+        // closeDialog(this)
       })
       .catch(error => {
         console.log("MyError:", error);
+        // closeDialog(this)
       })
 }
+
+***********
+
+const submitButtonFunctions = () => {
+  if ( { checkIfFieldsEmpty() } ) {
+    { addDrinkToDatabase() }
+  }
+  else {
+    console.log ("You need to enter more information")
+  }
+}
+
+******
+
+const submitForm= ()=> {
+  if (validator.allValid()) {
+    alert('You submitted the form and stuff!');
+  } else {
+    validator.showMessages();
+  }
+}
+
+
+*****
 
   return (
     <div className = "addFancyDrink">
@@ -103,10 +126,11 @@ const addDrinkToDatabase = () => {
         <Row>
           <Col>
             <Card className={classes.root} aria-labelledby="cardEdit">
+            <div className= "cardBackground">
+              {/* { CancelIcon } */}
               <h2 id="transition-modal-title">
                 Tell us about it
               </h2>
-            <div className= "cardBackground">
               <div className="centerItems">
                 {/* TYPE SELECTOR DROPDOWN */}
                 <Selector  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
@@ -116,7 +140,7 @@ const addDrinkToDatabase = () => {
                 {/* MANUFACTURER INPUT */}
                 <InputManufacturer  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
               <div className="centerItems">
-                <ImageUpload />
+                {/* <ImageUpload /> */}
               </div>
               <div className="centerItems">
                 <br/>
@@ -133,9 +157,12 @@ const addDrinkToDatabase = () => {
               <MultiInput  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
                 {/* FAVORITE SELECTION BUTTON */}
                 <TemporaryFavorite reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState} />
+
               {/* <IconButton aria-label="add to favorites">
               <FavoriteIcon  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState} onClick = {console.log("this button")}/> */}
               {/* </IconButton> */}
+
+            {/* <button onClick = { closeDialog(this) } >Cancel</button> */}
               <button onClick = { addDrinkToDatabase } >Log Drink</button>
               </div>
             </Card>
@@ -144,5 +171,4 @@ const addDrinkToDatabase = () => {
       </Container>
     </div>
   );
-  
 }

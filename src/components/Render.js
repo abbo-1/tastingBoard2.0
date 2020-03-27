@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 // import { connect } from 'react-redux';
 // import store from '../store';
 
@@ -6,13 +7,27 @@ class Render  extends React.Component {
     constructor(props) {
         super(props);
         console.log("Here are your props", props);
+
+//     getDrinks = (e) => {
+//       var options = {
+//         method: 'GET',
+//         url: 'http://localhost:8080/drinks',
+//     };
+
+//     axios.request(options)
+//       .then(function (response) {
+//         console.log(response);
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       });
+//     }
+
 }
 
-  getDrinks = (e) => {
-    
-  }
 
-render() {
+
+  render() {
     console.log("Look here:", this.props)
          let drinkChoice = this.props.reduxState.drinkChoice
          if (drinkChoice === undefined) {

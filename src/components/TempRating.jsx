@@ -47,16 +47,16 @@ export default function NativeSelects(props) {
           }}
         >
           <option aria-label="Select" value="" />
-          <option  value={1}>1 Star: Worst of the Worst</option>
-          <option value={2}>2 Stars: Awful</option>
-          <option  value={3}>3 Stars: Bad</option>
-          <option  value={4}>4 Stars: Not for Me</option>
-          <option  value={5}>5 Stars: Just Ok</option>
-          <option value={6}>6 Stars: Would Try Again</option>
-          <option  value={7}>7 Stars: Good</option>
-          <option  value={8}>8 Stars: Great</option>
-          <option  value={9}>9 Stars: Incredible</option>
-          <option  value={10}>10 Stars: Incredible</option>
+          <option  value={0}>0 Stars: Worst of the Worst</option>
+          <option value={1}>1 Star: Awful</option>
+          <option  value={1.5}>1.5 Stars: Bad</option>
+          <option  value={2}>2 Stars: Not for Me</option>
+          <option  value={2.5}>2.5 Stars: Just Ok</option>
+          <option value={3}>3 Stars: Would Try Again</option>
+          <option  value={3.5}>3.5 Stars: Good</option>
+          <option  value={4}>4 Stars: Great</option>
+          <option  value={4.5}> 4.5 Stars: Incredible</option>
+          <option  value={5}>5 Stars: Perfection</option>
         </Select>
       </FormControl>
     </div>

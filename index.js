@@ -48,6 +48,7 @@ const storage = multer.diskStorage({
   // create the multer instance that will be used to upload/save the file
   const upload = multer({ storage });
 ////////////////////////////////////////////
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

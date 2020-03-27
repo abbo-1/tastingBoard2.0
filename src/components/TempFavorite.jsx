@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 
 export default function SwitchLabels(props) {
   const [state, setState] = React.useState({
-    value: true
+    value: false
   });
 
   const handleChange = event => {

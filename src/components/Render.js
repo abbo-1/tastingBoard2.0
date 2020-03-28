@@ -28,6 +28,20 @@ class Render  extends React.Component {
 
 
   render() {
+
+    // call the drinks endpoint (via axios)
+
+    // let drinks = array of drinks
+
+    // let cardComponents = // array of Card (Card.js)
+    // loop through array of drinks
+          // add to cardComponents
+
+    // cardComponents has all the components to render
+
+
+
+
     console.log("Look here:", this.props)
          let drinkChoice = this.props.reduxState.drinkChoice
          if (drinkChoice === undefined) {
@@ -56,8 +70,10 @@ class Render  extends React.Component {
           break;
         default :
         }
+
         return (
             <div>{information}</div>
+            // <div> {cardComponents} </div>
         )
     }
 }

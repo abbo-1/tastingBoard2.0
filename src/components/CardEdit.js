@@ -105,8 +105,8 @@ const addDrinkToDatabase = () => {
   // }
   // else {
   //   console.log ("You need to enter more information")
-  }
-}
+//   }
+// }
 
 // ******
 

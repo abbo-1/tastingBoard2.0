@@ -9,25 +9,55 @@ class Render  extends React.Component {
         console.log("Here are your props", props);
 
 //     getDrinks = (e) => {
-//       var options = {
-//         method: 'GET',
-//         url: 'http://localhost:8080/drinks',
-//     };
+    //   var options = {
+    //     method: 'GET',
+    //     url: 'http://localhost:8080/drinks',
+    // };
 
-//     axios.request(options)
-//       .then(function (response) {
-//         console.log(response);
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       });
-//     }
+    // axios.request(options)
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+    // }
 
 }
 
 
 
   render() {
+
+  // call the drinks endpoint (via axios)
+  var options = {
+      method: 'GET',
+      url: 'http://localhost:8080/drinks',
+  };
+
+  axios.request(options)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  // let drinks = array of drinks
+  let drinks = []
+
+   // let cardComponents = // array of Card (Card.js)
+  let cardComponents = []
+
+   // loop through array of drinks
+          // add to cardComponents
+
+    // cardComponents has all the components to render
+
+
+
+
     console.log("Look here:", this.props)
          let drinkChoice = this.props.reduxState.drinkChoice
          if (drinkChoice === undefined) {
@@ -56,8 +86,10 @@ class Render  extends React.Component {
           break;
         default :
         }
+
         return (
             <div>{information}</div>
+            // <div> {cardComponents} </div>
         )
     }
 }

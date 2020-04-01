@@ -30,7 +30,7 @@ class Render  extends React.Component {
   render() {
 
   // call the drinks endpoint (via axios)
-  var options = {
+  let options = {
       method: 'GET',
       url: 'http://localhost:8080/drinks',
   };
@@ -45,10 +45,12 @@ class Render  extends React.Component {
   }
 
   // let drinks = array of drinks
-  let drinks = []
+  let drinks =  [axios.request.response.data]
+  console.log("it takes a small man to fall into a bottle")
+  console.log( drinks )
 
    // let cardComponents = // array of Card (Card.js)
-  let cardComponents = []
+  // let cardComponents = []
 
    // loop through array of drinks
           // add to cardComponents
@@ -59,9 +61,11 @@ class Render  extends React.Component {
 
 
     console.log("Look here:", this.props)
+
          let drinkChoice = this.props.reduxState.drinkChoice
          if (drinkChoice === undefined) {
              drinkChoice = "all"
+             callDrinks
          }
          let information = []
          console.log("Drink Choice is", drinkChoice)

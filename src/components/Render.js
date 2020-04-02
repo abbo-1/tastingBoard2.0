@@ -2,67 +2,52 @@ import React from 'react';
 import axios from 'axios';
 // import { connect } from 'react-redux';
 // import store from '../store';
+import Card from './Card.js'
 
 class Render  extends React.Component {
     constructor(props) {
         super(props);
         console.log("Here are your props", props);
 
-//     getDrinks = (e) => {
-    //   var options = {
-    //     method: 'GET',
-    //     url: 'http://localhost:8080/drinks',
-    // };
-
-    // axios.request(options)
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-    // }
-
-}
-
-
-
-  render() {
-
-  // call the drinks endpoint (via axios)
+ // call the drinks endpoint (via axios)
   let options = {
-      method: 'GET',
-      url: 'http://localhost:8080/drinks',
-  };
+    method: 'GET',
+    url: 'http://localhost:8080/drinks',
+};
 
-  axios.request(options)
-    .then(function (response) {
-      console.log(response);
+ // let drinks = array of drinks
+let drinksFromDatabase =  [];
+
+// axios request
+   axios.request(options)
+     .then(function (response) {
+      // console.log(response);
+      drinksFromDatabase =  [response.data]
+        console.log("look here")
+        console.log(drinksFromDatabase)
     })
-    .catch(function (error) {
+     .catch(function (error) {
       console.log(error);
     });
-  }
+  };
+}
 
-  // let drinks = array of drinks
-  let drinks =  [axios.request.response.data]
-  console.log("it takes a small man to fall into a bottle")
-  console.log( drinks )
+// let cardComponents = // array of Card (Card.js)
+let cardComponents = [{ Card }]
 
-   // let cardComponents = // array of Card (Card.js)
   // let cardComponents = []
+let cardComponents = []
 
    // loop through array of drinks
           // add to cardComponents
 
+render() {
+
+
+
     // cardComponents has all the components to render
 
-
-
-
-    console.log("Look here:", this.props)
-
-         let drinkChoice = this.props.reduxState.drinkChoice
+      let drinkChoice = this.props.reduxState.drinkChoice
          if (drinkChoice === undefined) {
              drinkChoice = "all"
              callDrinks
@@ -95,7 +80,6 @@ class Render  extends React.Component {
             <div>{information}</div>
             // <div> {cardComponents} </div>
         )
-    }
 }
 
 // export default connect()(Render);

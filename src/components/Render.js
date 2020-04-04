@@ -43,8 +43,7 @@ componentDidMount() {
           // add to cardComponents
 
   render() {
-
-
+    
     console.log("this.state is",[this.state])
     let stateArray = [this.state]
 
@@ -76,14 +75,22 @@ componentDidMount() {
   // console.log(beerOnly)
   // console.log("between and this 2")
 
-//  let drinkChoice = ......
+  let drinkChoice = this.props.reduxState.drinkChoice
+  // if (drinkChoice === undefined) {
+  //   drinkChoice = "all"
+  // }
+  console.log("fer" , drinkChoice)
+
   let cardComponents = drinks.map((drink) =>{
+    if (drink.type === drinkChoice) {
+      return (<InfoCard/>)
+    } else {
+      return <div>Nothing to Report</div>
+    }})
+
 
     // if drink.type === drinkChoice
-       return (<InfoCard/>
-    // else return <div></div>
-
-  });
+    // else return <div></div>;
       console.log("between this")
       console.log(cardComponents)
       console.log("between and this")
@@ -140,6 +147,6 @@ let cardComponents = []
         </div>
    )
   }
- }
+}
 
 export default Render

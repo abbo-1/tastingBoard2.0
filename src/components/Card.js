@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function InfoCard() {
+export default function InfoCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -64,7 +64,7 @@ export default function InfoCard() {
             <EditIcon />
           </IconButton>
         }
-        title="Red Wine"
+        // title={props.drinks.name}
         // subheader="September 14, 2016"
       />
       <CardMedia

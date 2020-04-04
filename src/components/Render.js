@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 // import { connect } from 'react-redux';
 // import store from '../store';
-import Card from './Card.js'
+import InfoCard from './Card.js'
+import CardEdit from './CardEdit.js'
 
 class Render  extends React.Component {
 
@@ -12,14 +13,13 @@ class Render  extends React.Component {
   }
 
 componentDidMount() {
-  
-      // call the drinks endpoint (via axios)
+    // call the drinks endpoint (via axios)
       let options = {
         method: 'GET',
         url: 'http://localhost:8080/drinks',
       };
 
-      // let drinks = array of drinks
+    // let drinks = array of drinks
       let drinksFromDatabase =  [];
       console.log("this is",this);
     // axios request
@@ -27,10 +27,10 @@ componentDidMount() {
         .then( (response) => {
           console.log(response);
           drinksFromDatabase =  response.data
-          console.log("look here")
+          console.log("Drinks from Database are:")
           console.log(drinksFromDatabase)
-          console.log("this is",this);
-          this.setState(drinksFromDatabase)
+
+          this.setState({ drinks : drinksFromDatabase})
     })
     .catch(function (error) {
       console.log(error);
@@ -39,71 +39,107 @@ componentDidMount() {
 
 // let cardComponents = // array of Card (Card.js)
 // let cardComponents = [{ Card }]
-
-
    // loop through array of drinks
-
-
-
           // add to cardComponents
 
   render() {
 
-     let drinks = this.state;
-  console.log("between this")
-  console.log(drinks);
-  console.log("between and this")
 
-    // let selectedDrinks = drinks.map(
-    //   function() {
-    
-    //     // cardComponents.push()
-    //   }
-    // )
+    console.log("this.state is",[this.state])
+    let stateArray = [this.state]
 
-  // let cardComponents = []
-  //let cardComponents = []
+    if (stateArray[0] == null) {
+      console.log("returning with nthing")
+      return <div></div>
+    }
 
+    console.log("stateArray",stateArray);
+
+    let firstElement = stateArray[0];
+    console.log("firstElement",firstElement)
+   // console.log(stateArray[0])
+   let  drinks = firstElement.drinks; 
+    console.log("the lizard king")
+    console.log(drinks);
+    // console.log("between and this")
+        
+
+  //  let cardComponents = [];
+    //let myCard = { InfoCard }
+  //  cardComponents.push(<InfoCard/>)
+// cardComponents.push("<p>heyhey</p>")
+  // let beerOnly = drinks.filter((item) => {
+  //   return item.type === "Beer"
+  // })
+  
+  // console.log("between this 2")
+  // console.log(beerOnly)
+  // console.log("between and this 2")
+
+//  let drinkChoice = ......
+  let cardComponents = drinks.map((drink) =>{
+
+    // if drink.type === drinkChoice
+       return (<InfoCard/>
+    // else return <div></div>
+
+  });
+      console.log("between this")
+      console.log(cardComponents)
+      console.log("between and this")
+
+  // })
+
+/*
+let drinkChoice = this.props.reduxState.drinkChoice
+if (drinkChoice === undefined) {
+  drinkChoice = "all"
+let cardComponents = []
+  console.log("Drink Choice is", drinkChoice)
+  switch(drinkChoice) {
+  case "all":
+    cardComponents = <p>These are all of your drinks</p>
+    break;
+  case "Wine":
+    cardComponents = <p>This is your wine</p>
+    break;
+  case "Beer":
+    cardComponents = <p>This is your beer</p>
+    break;
+  case "Liquor":
+    cardComponents = <p>This is your liquor</p>
+    break;
+  case "Cocktail":
+    cardComponents = <p>These are your cocktails</p>
+    break;
+  case "Favorites":
+    cardComponents = <p>These are your favorites</p>
+  break;
+  default :
+  }
+}
+*/
+
+
+        // cardComponents.push()
+  
   // cardComponents has all the components to render
 
+//   let drinkChoice = this.props.reduxState.drinkChoice
+// if (drinkChoice === undefined) {
+//     drinkChoice = "all"
+// }
 
-      let drinkChoice = this.props.reduxState.drinkChoice
-         if (drinkChoice === undefined) {
-             drinkChoice = "all"
-            //  callDrinks
-         }
-         let information = []
-         console.log("Drink Choice is", drinkChoice)
-        switch(drinkChoice) {
-          case "all":
-            information = <p>These are all of your drinks</p>
-            break;
-          case "Wine":
-            information = <p>This is your wine</p>
-            break;
-          case "Beer":
-            information = <p>This is your beer</p>
-            break;
-          case "Liquor":
-            information = <p>This is your liquor</p>
-            break;
-          case "Cocktail":
-            information = <p>These are your cocktails</p>
-            break;
-          case "Favorites":
-            information = <p>These are your favorites</p>
-          break;
-        default :
-        }
 
   return (
-    <div>hi</div>
-    //<div>{information}</div>
-     //<div> {cardComponents} </div>
-    )
+    //  <div> { InfoCard } </div>
+      <div>
+         <div> "hey" </div>
+          <div>{cardComponents}</div>
+        <div>hey2</div>
+        </div>
+   )
   }
+ }
 
-}
-
-// export default connect()(Render);
 export default Render

@@ -11,6 +11,7 @@ class Render  extends React.Component {
         super(props);
         console.log("Here are your props", props);
   }
+  
 
 componentDidMount() {
     // call the drinks endpoint (via axios)
@@ -20,22 +21,28 @@ componentDidMount() {
       };
 
     // let drinks = array of drinks
-      let drinksFromDatabase =  [];
+      let drinks =  [];
       console.log("this is",this);
     // axios request
       axios.request(options)
         .then( (response) => {
           console.log(response);
-          drinksFromDatabase =  response.data
-          console.log("Drinks from Database are:")
-          console.log(drinksFromDatabase)
-
-          this.setState({ drinks : drinksFromDatabase})
+          this.setState({ drinks: response.data })
     })
     .catch(function (error) {
       console.log(error);
     });
 }
+
+// componentDidMount() {
+//   axios('http://localhost:8080/drinks')
+//     .then(response => {
+//       this.setState({ drinks: response.data })
+//     })
+//     .catch(function(error) {
+//       console.log(error)
+//     })
+// }
 
 // let cardComponents = // array of Card (Card.js)
 // let cardComponents = [{ Card }]
@@ -48,42 +55,52 @@ componentDidMount() {
     let stateArray = [this.state]
 
     if (stateArray[0] == null) {
-      console.log("returning with nthing")
+      console.log("returning with nothing")
       return <div></div>
     }
 
-    console.log("stateArray",stateArray);
-
-    let firstElement = stateArray[0];
-    console.log("firstElement",firstElement)
-   // console.log(stateArray[0])
+    // console.log("stateArray",stateArray);
+  let firstElement = stateArray[0];
+    // console.log("firstElement",firstElement)
    let  drinks = firstElement.drinks; 
-    console.log("the lizard king")
-    console.log(drinks);
-    // console.log("between and this")
+    // console.log("the lizard king")
+    // console.log(drinks);
         
 
   //  let cardComponents = [];
     //let myCard = { InfoCard }
   //  cardComponents.push(<InfoCard/>)
 // cardComponents.push("<p>heyhey</p>")
-  // let beerOnly = drinks.filter((item) => {
-  //   return item.type === "Beer"
-  // })
-  
-  // console.log("between this 2")
-  // console.log(beerOnly)
-  // console.log("between and this 2")
 
   let drinkChoice = this.props.reduxState.drinkChoice
+
   // if (drinkChoice === undefined) {
   //   drinkChoice = "all"
   // }
-  console.log("fer" , drinkChoice)
+  // console.log("fer" , drinkChoice)
+
+  // const props = this.props
+
+  // console.log("just drinks", drinks)
+
+  // console.log("prps and drinks", props.drinks)
+
+  // let drinkInfo = {
+  //   type: props.drinks.type,
+  //   name:  props.drinks.name,
+  //   manufacturer: props.drinks.manufacturer,
+  //   rating: props.drinks.rating,
+  //   date: props.drinks.date,
+  //   description: props.drinks.description,
+  //   favorite: props.drinks.favorite
+  // }
+  // console.log("Modi Chow" , drinkInfo)
+
 
   let cardComponents = drinks.map((drink) =>{
     if (drink.type === drinkChoice) {
-      return (<InfoCard/>)
+      // return (<InfoCard {this.props.drinkInfo} />)
+            return (<InfoCard />)
     } else {
       return <div>Nothing to Report</div>
     }})

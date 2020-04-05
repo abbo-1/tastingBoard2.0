@@ -77,34 +77,31 @@ componentDidMount() {
   // if (drinkChoice === undefined) {
   //   drinkChoice = "all"
   // }
-  // console.log("fer" , drinkChoice)
+  console.log("fer" , drinkChoice)
 
   // const props = this.props
 
-  // console.log("just drinks", drinks)
+  console.log("just drinks", drinks)
 
-  // console.log("prps and drinks", props.drinks)
 
-  // let drinkInfo = {
-  //   type: props.drinks.type,
-  //   name:  props.drinks.name,
-  //   manufacturer: props.drinks.manufacturer,
-  //   rating: props.drinks.rating,
-  //   date: props.drinks.date,
-  //   description: props.drinks.description,
-  //   favorite: props.drinks.favorite
-  // }
-  // console.log("Modi Chow" , drinkInfo)
+  let drinkInfo = {
+    type: this.state.drinks.type,
+    name:  this.state.drinks.name,
+    manufacturer: this.state.drinks.manufacturer,
+    rating: this.state.drinks.rating,
+    date: this.state.drinks.date,
+    description: this.state.drinks.description,
+    favorite: this.state.drinks.favorite
+  }
+  console.log("Modi Chow" , drinkInfo)
 
 
   let cardComponents = drinks.map((drink) =>{
     if (drink.type === drinkChoice) {
-      // return (<InfoCard {this.props.drinkInfo} />)
-            return (<InfoCard />)
+      return (<InfoCard props={this.state.drinks} />)
     } else {
       return <div>Nothing to Report</div>
     }})
-
 
     // if drink.type === drinkChoice
     // else return <div></div>;

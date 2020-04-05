@@ -51,6 +51,7 @@ export default function InfoCard(props) {
     setExpanded(!expanded);
   };
 
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -64,7 +65,8 @@ export default function InfoCard(props) {
             <EditIcon />
           </IconButton>
         }
-        // title={props.drinks.name}
+        title = {props.name}
+
         // subheader="September 14, 2016"
       />
       <CardMedia

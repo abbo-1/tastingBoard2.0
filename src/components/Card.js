@@ -51,13 +51,18 @@ export default function InfoCard(props) {
     setExpanded(!expanded);
   };
 
+console.log("props are here")
+console.log( props  )
+
+console.log("props dot name is here")
+console.log( props.name )
 
   return (
     <Card className={classes.root}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            R
+            s
           </Avatar>
         }
         action={
@@ -65,8 +70,7 @@ export default function InfoCard(props) {
             <EditIcon />
           </IconButton>
         }
-        title = {props.name}
-
+        title = {props}
         // subheader="September 14, 2016"
       />
       <CardMedia

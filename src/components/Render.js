@@ -21,7 +21,7 @@ componentDidMount() {
       };
 
     // let drinks = array of drinks
-      let drinks =  [];
+      let drinks =  {};
       console.log("this is",this);
     // axios request
       axios.request(options)
@@ -33,6 +33,7 @@ componentDidMount() {
       console.log(error);
     });
 }
+
 
 // componentDidMount() {
 //   axios('http://localhost:8080/drinks')
@@ -50,8 +51,8 @@ componentDidMount() {
           // add to cardComponents
 
   render() {
-    
-    console.log("this.state is",[this.state])
+    console.log("this.state is", this.state)
+    // stateIsDrinks = this.state
     let stateArray = [this.state]
 
     if (stateArray[0] == null) {
@@ -59,48 +60,54 @@ componentDidMount() {
       return <div></div>
     }
 
-    // console.log("stateArray",stateArray);
-  let firstElement = stateArray[0];
-    // console.log("firstElement",firstElement)
-   let  drinks = firstElement.drinks; 
+   let firstElement = stateArray[0]; 
+   console.log("stateArray is", stateArray[0])
+   let drinks = firstElement.drinks; 
+   console.log("firstelement drinks is", firstElement.drinks)
+   
+// -----------
+
     // console.log("the lizard king")
     // console.log(drinks);
         
-
   //  let cardComponents = [];
     //let myCard = { InfoCard }
   //  cardComponents.push(<InfoCard/>)
 // cardComponents.push("<p>heyhey</p>")
 
   let drinkChoice = this.props.reduxState.drinkChoice
+  
+  console.log("drink choice is" , drinkChoice)
 
   // if (drinkChoice === undefined) {
   //   drinkChoice = "all"
   // }
-  console.log("fer" , drinkChoice)
+
 
   // const props = this.props
 
-  console.log("just drinks", drinks)
+  // console.log("just drinks", drinks)
 
 
-  let drinkInfo = {
-    type: this.state.drinks.type,
-    name:  this.state.drinks.name,
-    manufacturer: this.state.drinks.manufacturer,
-    rating: this.state.drinks.rating,
-    date: this.state.drinks.date,
-    description: this.state.drinks.description,
-    favorite: this.state.drinks.favorite
-  }
-  console.log("Modi Chow" , drinkInfo)
+  // let drinkInfo = {
+  //   type: this.state.drinks.type,
+  //   name:  this.state.drinks.name,
+  //   manufacturer: this.state.drinks.manufacturer,
+  //   rating: this.state.drinks.rating,
+  //   date: this.state.drinks.date,
+  //   description: this.state.drinks.description,
+  //   favorite: this.state.drinks.favorite
+  // }
 
-
+  // const { type, name, manufacturer, rating, date, description, favorite  } = this.state;
+console.log("LOOK AT THIS", drinks)
   let cardComponents = drinks.map((drink) =>{
-    if (drink.type === drinkChoice) {
-      return (<InfoCard props={this.state.drinks} />)
-    } else {
-      return <div>Nothing to Report</div>
+    if (drink.type === drinkChoice || drinkChoice === 'All') {
+      return (<InfoCard drinks={this.state.drinks} />)
+    } if (drinkChoice === 'Favorites' && drink.favorite === true) {
+      return (<InfoCard drinks={this.state.drinks} />)
+    }else {
+      return console.log("Nothing to report")
     }})
 
     // if drink.type === drinkChoice
@@ -108,38 +115,8 @@ componentDidMount() {
       console.log("between this")
       console.log(cardComponents)
       console.log("between and this")
-
   // })
 
-/*
-let drinkChoice = this.props.reduxState.drinkChoice
-if (drinkChoice === undefined) {
-  drinkChoice = "all"
-let cardComponents = []
-  console.log("Drink Choice is", drinkChoice)
-  switch(drinkChoice) {
-  case "all":
-    cardComponents = <p>These are all of your drinks</p>
-    break;
-  case "Wine":
-    cardComponents = <p>This is your wine</p>
-    break;
-  case "Beer":
-    cardComponents = <p>This is your beer</p>
-    break;
-  case "Liquor":
-    cardComponents = <p>This is your liquor</p>
-    break;
-  case "Cocktail":
-    cardComponents = <p>These are your cocktails</p>
-    break;
-  case "Favorites":
-    cardComponents = <p>These are your favorites</p>
-  break;
-  default :
-  }
-}
-*/
 
 
         // cardComponents.push()
@@ -153,12 +130,10 @@ let cardComponents = []
 
 
   return (
-    //  <div> { InfoCard } </div>
       <div>
-         <div> "hey" </div>
+
           <div>{cardComponents}</div>
-        <div>hey2</div>
-        </div>
+      </div>
    )
   }
 }

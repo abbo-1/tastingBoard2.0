@@ -50,17 +50,6 @@ const useStyles = makeStyles(theme => ({
 export default function CardEdit(props) {
 const classes = useStyles();
 
-      // closeDialog = function (closeButton) {
-    //   var topDialog = aria.cardEdit();
-    //   if (topDialog.dialogNode.contains(closeButton)) {
-    //     topDialog.close();
-    //   }
-    // }
-
-const closeDialog = () => {
-
-}
-
 const addDrinkToDatabase = () => {
 
   console.log("props.reduxState is", props.reduxState)
@@ -88,13 +77,16 @@ const addDrinkToDatabase = () => {
     axios.request(options)
       .then(response => {
         console.log("My response", response);
-        // closeDialog(this)
+        
       })
       .catch(error => {
         console.log("MyError:", error);
         // closeDialog(this)
       })
 }
+
+// console.log("on close")
+// console.log(props.onClose)
 
 // ***********
 

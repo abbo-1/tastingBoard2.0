@@ -129,7 +129,7 @@ const addDrinkToDatabase = () => {
               {/* </IconButton> */}
 
             {/* <button onClick = { closeDialog(this) } >Cancel</button> */}
-              <button onClick = { addDrinkToDatabase } >Log Drink</button>
+              <button onClick = { addDrinkToDatabase } className="logDrinkBtn" >Log Drink</button>
               </div>
             </Card>
           </Col>

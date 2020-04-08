@@ -49,7 +49,6 @@ export default function CustomizedSnackbars() {
         Drink successfully added to your tasting board!
         </Alert>
       </Snackbar>
-      <Alert severity="success">Drink successfully added to your tasting board!</Alert>
     </div>
   );
 }

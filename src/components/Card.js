@@ -41,55 +41,23 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function InfoCard(props) {
+export default function InfoCard(  props ) {
   const classes = useStyles();
 
-//   props = JSON.parse(props)
-// props.each(function (drink) {
-//  console.log(drink.name);
-// });
-
-
-
-// type,
-// name,
-// manufacturer,
-// rating,
-// date,
-// description,
-// favorite
-
-  //   type: this.state.drinks.type,
-  //   name:  this.state.drinks.name,
-  //   manufacturer: this.state.drinks.manufacturer,
-  //   rating: this.state.drinks.rating,
-  //   date: this.state.drinks.date,
-  //   description: this.state.drinks.description,
-  //   favorite: this.state.drinks.favorite
-
-
-// if( props.length <= 0 )  {
-//     return (<div></div>);
-// } else {
-  
-// console.log("props are here")
-// console.log( props  )
-
-// console.log("props dot name")
-// console.log ( props.name )
-// }
 
 console.log("props are here")
 console.log( props  )
 
 console.log("props dot name")
-console.log ( props.drinks[0] )
+// console.log ( props.drinks[i].name )
 
-// console.log(props.filter(
-//   console.log(props)
-//   drinks = props))
+// function findIndex (index) {
+  
+// }
 
-// console.log(props[2].name)
+// const drinkFromDatabase = props.drinks[i]
+
+
 
 // const Component = ({ beverages }) => {
 //   return beverages.map(...)
@@ -116,7 +84,8 @@ console.log ( props.drinks[0] )
         // title = {props}
         // subheader="September 14, 2016"
         // title = { NameThisDrink }
-        // title = { props.name }
+        title = { props.drinks[props.i].name }
+        subheader = { props.drinks[props.i].manufacturer }
         
       />
       <CardMedia

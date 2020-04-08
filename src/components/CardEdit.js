@@ -67,8 +67,6 @@ const addDrinkToDatabase = () => {
     favorite: props.reduxState.favorite
   }
 
-  // const handleSubmit = (e) => {
-    // e.preventDefault()
     console.log("CardEdit says this is the info: ", drinkInfo)
 
     var options = {
@@ -77,16 +75,23 @@ const addDrinkToDatabase = () => {
       data: drinkInfo
     };
 
+    const closeModal = function() {
+       props.onClose()
+       return <UploadDrinkSuccess  closingModal = {true}/>
+    }
+
     axios.request(options)
       .then(response => {
         console.log("My response", response);
-        
+        closeModal()
       })
       .catch(error => {
         console.log("MyError:", error);
         // closeDialog(this)
       })
 }
+  console.log("kdd")
+  console.log(props.onClose)
 
   return (
     <div className = "addFancyDrink">

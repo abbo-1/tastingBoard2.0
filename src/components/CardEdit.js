@@ -5,8 +5,6 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import axios from 'axios';
 
-import SendIcon from '@material-ui/icons/Send';
-
 import 'bootstrap/dist/css/bootstrap.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -23,6 +21,11 @@ import TemporaryRating from './TempRating.jsx'
 import TemporaryFavorite from './TempFavorite.jsx'
 import CancelIcon from '@material-ui/icons/Cancel';
 import Submit from './SubmitButton.js'
+
+import tellUs from '../images/tellUs.png'
+
+import UploadDrinkFail from './DrinkUploadFail'
+import UploadDrinkSuccess from './DrinkUploadSuccess'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -49,17 +52,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function CardEdit(props) {
 const classes = useStyles();
-
-      // closeDialog = function (closeButton) {
-    //   var topDialog = aria.cardEdit();
-    //   if (topDialog.dialogNode.contains(closeButton)) {
-    //     topDialog.close();
-    //   }
-    // }
-
-const closeDialog = () => {
-
-}
 
 const addDrinkToDatabase = () => {
 
@@ -88,38 +80,13 @@ const addDrinkToDatabase = () => {
     axios.request(options)
       .then(response => {
         console.log("My response", response);
-        // closeDialog(this)
+        
       })
       .catch(error => {
         console.log("MyError:", error);
         // closeDialog(this)
       })
 }
-
-// ***********
-
-// const submitButtonFunctions = () => {
-//   if () 
-  // if ( { checkIfFieldsEmpty() } ) {
-  //   { addDrinkToDatabase() }
-  // }
-  // else {
-  //   console.log ("You need to enter more information")
-//   }
-// }
-
-// ******
-
-// const submitForm= ()=> {
-//   if () {
-//     alert('You submitted the form and stuff!');
-//   } else {
-//     validator.showMessages();
-//   }
-// }
-
-
-// *****
 
   return (
     <div className = "addFancyDrink">
@@ -129,9 +96,7 @@ const addDrinkToDatabase = () => {
             <Card className={classes.root} aria-labelledby="cardEdit">
             <div className= "cardBackground">
               {/* { CancelIcon } */}
-              <h2 id="transition-modal-title">
-                Tell us about it
-              </h2>
+              <img src={tellUs} className = "tellUs" />
               <div className="centerItems">
                 {/* TYPE SELECTOR DROPDOWN */}
                 <Selector  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}/>
@@ -169,6 +134,8 @@ const addDrinkToDatabase = () => {
             </Card>
           </Col>
         </Row>
+        <UploadDrinkFail />
+        <UploadDrinkSuccess />
       </Container>
     </div>
   );

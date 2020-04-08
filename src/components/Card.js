@@ -15,8 +15,10 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import EditIcon from '@material-ui/icons/Edit';
 
 import Rating from './Rating.js';
-import DatePicker from './DatePicker.js'
 import  ImageSelector  from  './ImageSelector.js'
+import Favorite from './Favorite.js'
+import RatingDisplay from './RatingDisplay.js'
+import AvatarCard from './AvatarCard.js'
 // import CardEdit from './CardEdit.js'
 
 const useStyles = makeStyles(theme => ({
@@ -48,17 +50,16 @@ const classes = useStyles();
 console.log("props are here")
 console.log( props  )
 
-console.log("props dot name")
-
   return (
     <div class = "cardComponent">
     <Card className= {classes.root}>
+    {/* <AvatarCard drinkType = {props.drinks[props.i].type}  /> */}
       <CardHeader
+      
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            B
-          </Avatar>
+          <AvatarCard drinkType = {props.drinks[props.i].type}  />
         }
+        AvatarCard
         action={
           <IconButton aria-label="settings">
             <EditIcon />
@@ -67,15 +68,21 @@ console.log("props dot name")
         title = { props.drinks[props.i].name }
         subheader = { props.drinks[props.i].manufacturer }
       />
+        <CardContent>
+        <Typography variant="body2" gutterBottom>
         <div className="centerItems">
         <ImageSelector drinkType = {props.drinks[props.i].type} />
-        {/* <Rating /> */}
-        Rating = { props.drinks[props.i].rating }
         </div>
-        {/* <DatePicker /> */}
+        <div className="centerItems">
+        <RatingDisplay drinkRating = {props.drinks[props.i].rating}/>
+        </div>
         <br />
-        Date Consumed = { props.drinks[props.i].date }
+        Date Consumed:
         <br/>
+        { props.drinks[props.i].date }
+        <br/>
+        </Typography>
+        </CardContent>
         <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           { props.drinks[props.i].description }
@@ -83,7 +90,7 @@ console.log("props dot name")
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <Favorite favorite = {props.drinks[props.i].favorite} />
         </IconButton>
       </CardActions>
     </Card>

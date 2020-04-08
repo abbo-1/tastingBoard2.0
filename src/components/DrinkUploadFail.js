@@ -49,7 +49,6 @@ export default function CustomizedSnackbars() {
             Something went wrong! Please try again!
         </Alert>
       </Snackbar>
-      <Alert severity="error">Something went wrong! Please try again!</Alert>
     </div>
   );
 }

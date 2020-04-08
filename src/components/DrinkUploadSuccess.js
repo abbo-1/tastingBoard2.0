@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,8 +17,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CustomizedSnackbars() {
+export default function CustomizedSnackbars(props) {
   const classes = useStyles();
+
+//   const ifTrue = function() {
+//     console.log("katk")
+//     console.log(props)
+//     console.log(props.closingModal)
+//     if ( props.closingModal === true ) {
+//       handleClick()
+//     }
+// }
+
+// ifTrue()
+
   const [open, setOpen] = React.useState(false);
 
   function GrowTransition(props) {
@@ -39,11 +50,12 @@ export default function CustomizedSnackbars() {
     setOpen(false);
   };
 
+
   return (
     <div className={classes.root}>
-      <Button variant="outlined" onClick={handleClick}>
+      {/* <Button variant="outlined" onClick={handleClick}>
         Open fail snackbar
-      </Button>
+      </Button> */}
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success">
         Drink successfully added to your tasting board!

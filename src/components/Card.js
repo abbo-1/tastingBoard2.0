@@ -16,6 +16,7 @@ import EditIcon from '@material-ui/icons/Edit';
 
 import Rating from './Rating.js';
 import DatePicker from './DatePicker.js'
+import  ImageSelector  from  './ImageSelector.js'
 // import CardEdit from './CardEdit.js'
 
 const useStyles = makeStyles(theme => ({
@@ -42,30 +43,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function InfoCard(  props ) {
-  const classes = useStyles();
-
+const classes = useStyles();
 
 console.log("props are here")
 console.log( props  )
 
 console.log("props dot name")
-// console.log ( props.drinks[i].name )
-
-// function findIndex (index) {
-  
-// }
-
-// const drinkFromDatabase = props.drinks[i]
-
-
-
-// const Component = ({ beverages }) => {
-//   return beverages.map(...)
-// }
-
-// function displayFavoriteIcon () {
-//   if
-// }
 
   return (
     <div class = "cardComponent">
@@ -81,26 +64,21 @@ console.log("props dot name")
             <EditIcon />
           </IconButton>
         }
-        // title = {props}
-        // subheader="September 14, 2016"
-        // title = { NameThisDrink }
         title = { props.drinks[props.i].name }
         subheader = { props.drinks[props.i].manufacturer }
-        
-      />
-      <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
       />
         <div className="centerItems">
-        <Rating />
+        <ImageSelector drinkType = {props.drinks[props.i].type} />
+        {/* <Rating /> */}
+        Rating = { props.drinks[props.i].rating }
         </div>
-        <DatePicker />
+        {/* <DatePicker /> */}
+        <br />
+        Date Consumed = { props.drinks[props.i].date }
         <br/>
         <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {/* {description} */}
+          { props.drinks[props.i].description }
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

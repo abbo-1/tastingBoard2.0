@@ -104,6 +104,7 @@ app.get('/register', (req, res) => {
 app.post('/register', function (req, res) {
     res.send('Registered a user')
 });
+
 ////Drink Routes//////////////////////////
 app.get('/drinks', function (req, res) {
     console.log('drinks');

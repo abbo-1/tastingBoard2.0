@@ -77,7 +77,8 @@ const addDrinkToDatabase = () => {
 
     const closeModal = function() {
        props.onClose()
-       return <UploadDrinkSuccess  closingModal = {true}/>
+       alert("Drink added to your board!")
+       return <UploadDrinkSuccess/>
     }
 
     axios.request(options)

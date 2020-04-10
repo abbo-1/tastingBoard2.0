@@ -21,17 +21,17 @@ function App() {
   //Store.getState().showCardEdit;
 
   return (
-    <div className='App'>
       <body>
+      <div className='App'>
         {/* <SignUpSide /> */}
         <Header reduxDispatch={Store.dispatch} reduxState ={Store.getState()} />
 
         <Navbar reduxDispatch={Store.dispatch} />
         <Render reduxState={Store.getState()} />
- <Card /> 
-        {/* <CardEdit /> */} 
-      </body>
+ {/* <Card /> 
+        <CardEdit />  */}
     </div>
+      </body>
   );
 }
 

@@ -37,10 +37,19 @@ export default function CustomizedSnackbars(props) {
     return <Grow {...props} />;
   }
 
-  const handleClick = () => {
-    setOpen(true);
-    GrowTransition()
-  };
+// function checkIfTrue() {
+//   if (props.closingModal === true) {
+//     setOpen(true);
+//     GrowTransition()
+//   };
+// }
+
+// checkIfTrue()
+
+//   const handleClick = () => {
+//     setOpen(true);
+//     GrowTransition()
+//   };
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {

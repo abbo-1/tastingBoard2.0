@@ -60,7 +60,7 @@ export default function TransitionsModal(props) {
       >
         <Fade in={open}>
           <div >
-            <CardEdit  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}         onClose={handleClose}/>
+            <CardEdit  reduxDispatch={props.reduxDispatch} reduxState ={props.reduxState}  onClose={handleClose}/>
           </div>
         </Fade>
       </Modal>

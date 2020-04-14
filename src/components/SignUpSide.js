@@ -217,3 +217,14 @@ export default function SignInSide() {
     </Grid>
   );
 }
+
+// async function handleSubmit(event) {
+//   event.preventDefault();
+
+//   try {
+//     await Auth.signIn(email, password);
+//     alert("Logged in");
+//   } catch (e) {
+//     alert(e.message);
+//   }
+// }

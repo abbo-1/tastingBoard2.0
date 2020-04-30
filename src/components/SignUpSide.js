@@ -108,6 +108,46 @@ window.onload = function() {
 };
 // END TEXT ANIMATION
 
+
+const addUserToDatabase = () => {
+  console.log("button works")
+  // console.log("props.reduxState is", props.reduxState)
+
+  // let drinkInfo = {
+  //   type: props.reduxState.type,
+  //   name:  props.reduxState.name,
+  //   manufacturer: props.reduxState.manufacturer,
+  //   rating: props.reduxState.rating,
+  //   date: props.reduxState.date,
+  //   description: props.reduxState.description,
+  //   favorite: props.reduxState.favorite
+  // }
+
+  //   console.log("CardEdit says this is the info: ", drinkInfo)
+
+  //   var options = {
+  //     method: 'POST',
+  //     url: 'http://localhost:8080/drinks',
+  //     data: drinkInfo
+  //   };
+
+  //   const closeModal = function() {
+  //      props.onClose()
+  //      alert("Drink added to your board!")
+  //      return <UploadDrinkSuccess/>
+  //   }
+
+  //   axios.request(options)
+  //     .then(response => {
+  //       console.log("My response", response);
+  //       closeModal()
+  //     })
+  //     .catch(error => {
+  //       console.log("MyError:", error);
+  //       // closeDialog(this)
+  //     })
+}
+
 export default function SignInSide() {
   const classes = useStyles();
 
@@ -188,18 +228,13 @@ export default function SignInSide() {
                   autoComplete='current-password'
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration and updates via email."
-              />
-            </Grid> */}
             </Grid>
             <Button
               type='submit'
               fullWidth
               variant='contained'
               color='primary'
+              onClick = { addUserToDatabase }
               className={classes.submit}
             >
               Sign Up
